@@ -1,9 +1,7 @@
-@extends('layout')
-
-@section('content')
+<x-layout>
 
 <h1>{{$course->title}}</h1>
 
 <p>{{$course->description}}</p>
 
-@endsection
+</x-layout>

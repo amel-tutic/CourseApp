@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Models\Course;
 use Illuminate\Support\Facades\Route;
 
@@ -18,15 +19,6 @@ Route::get('/', function () {
     return view('layout');
 });
 
-Route::get('/courses', function() {
-    return view('courses', [
-        'heading' => 'Latest Courses',
-        'courses' => Course::all()
-    ]);
-});
+Route::get('/courses', [CourseController::class, 'getAll']);
 
-Route::get('/courses/{course}', function (Course $course) {
-    return view('course', [
-        'course' => $course
-    ]);
-});
+Route::get('/courses/{course}', [CourseController::class, 'getById']);

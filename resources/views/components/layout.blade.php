@@ -26,9 +26,9 @@
         </nav>
     </header>
     
-    <div class="content">
-        @yield('content')
-    </div>
+    <main>
+        {{$slot}}
+    </main>
 
     <footer>
         <p>&copy;2023 By Mirza Salkovic</p>
