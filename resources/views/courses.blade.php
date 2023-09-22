@@ -5,6 +5,8 @@
 
 <h1>{{$heading}}</h1>
 
+@include('partials._search')
+
 @unless (count($courses) == 0)
 
 @foreach($courses as $course)

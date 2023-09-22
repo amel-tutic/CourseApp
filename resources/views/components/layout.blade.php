@@ -31,7 +31,7 @@
     </main>
 
     <footer>
-        <p>&copy;2023 By Mirza Salkovic</p>
+        <p>&copy;2023 By Amel Tutic</p>
     </footer>
 </div>
 </body>

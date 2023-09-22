@@ -8,9 +8,11 @@ use Illuminate\Http\Request;
 class CourseController extends Controller
 {
     public function getAll(){
+        
         return view('courses', [
             'heading' => 'Latest Courses',
-            'courses' => Course::all()
+            // 'courses' => Course::all()
+            'courses' => Course::latest()->filter(request(['tag', 'search']))->get()
         ]);
     }
 
