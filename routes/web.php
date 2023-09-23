@@ -21,4 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/courses', [CourseController::class, 'getAll']);
 
+Route::get('/courses/create', [CourseController::class, 'create']);
+
+Route::post('/courses', [CourseController::class, 'store']);
+
 Route::get('/courses/{course}', [CourseController::class, 'getById']);
