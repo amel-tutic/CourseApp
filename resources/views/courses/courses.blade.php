@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="/css/courses.css">
 
 
+
 <h1>{{$heading}}</h1>
 
 @include('partials._search')

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="//unpkg.com/alpinejs" defer></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +27,8 @@
         </nav>
     </header>
     
+    <x-flash-message />
+
     <main>
         {{$slot}}
     </main>
@@ -33,6 +36,7 @@
     <footer>
         <p>&copy;2023 By Amel Tutic</p>
     </footer>
+
 </div>
 </body>
 </html>
