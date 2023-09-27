@@ -17,6 +17,7 @@ return new class extends Migration
             $table->longText('description');
             $table->string('tags');
             $table->integer('duration');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

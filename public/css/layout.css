@@ -4,7 +4,7 @@ body {
     /* Postavlja minimalnu visinu na 100vh */
 }
 .logo {
-    width: 100px;
+    width: 10rem;
 }
 #layoutMain {
     display: flex;
@@ -23,6 +23,7 @@ header {
     text-align: center;
     border-bottom: 1px solid rgba(23, 22, 22, 0.122);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 10px;
+    background-image: linear-gradient(to right, black, gray);
 }
 header nav ul {
     list-style: none;
@@ -44,7 +45,7 @@ header nav a {
 }
 
 header nav a:hover {
-    color: #ad9551;
+    color: #b0d0ef;
 }
 
 /* Stilizacija footer-a */
@@ -54,6 +55,7 @@ footer {
     color: #000000;
     text-align: center;
     padding: 10px 0;
+    background-image: linear-gradient(to right, black, gray);
 }
 header .logo {
     font-size: 50px; /* Prilagodite veličinu slova prema potrebi */

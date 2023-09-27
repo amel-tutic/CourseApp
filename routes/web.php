@@ -19,10 +19,20 @@ use Illuminate\Support\Facades\Route;
 //     return view('layout');
 // });
 
+//get all courses
 Route::get('/courses', [CourseController::class, 'getAll']);
 
+//get create form
 Route::get('/courses/create', [CourseController::class, 'create']);
 
+//post a new course
 Route::post('/courses', [CourseController::class, 'store']);
 
+//get edit form
+Route::get('/courses/{course}/edit' , [CourseController::class, 'edit']);
+
+//update course
+Route::put('/courses/{course}', [CourseController::class, 'update']);
+
+//get a single course
 Route::get('/courses/{course}', [CourseController::class, 'getById']);

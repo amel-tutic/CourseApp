@@ -1,3 +1,11 @@
 .courses{
-    background-color: gray;
+    background-color: #b0d0ef;
+}
+
+.gold {
+    background-color: gold !important;  
+}
+
+.image{
+    width: 12rem;
 }
