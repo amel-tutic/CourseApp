@@ -44,6 +44,8 @@ class CourseController extends Controller
             $formFields['image'] = $request->file('image')->store('images', 'public');
         }
 
+        $formFields['user_id'] = auth()->id();
+        
         Course::create($formFields);
 
         return redirect('/courses')->with('message', "Course created successfully!");
@@ -57,6 +59,12 @@ class CourseController extends Controller
     //update course
     public function update(Request $request, Course $course){
         // dd($request->all());
+
+        //check if logged in user is the owner of the course
+        if($course->user_id != auth()->id()){
+            abort(403, 'Unauthorized action');
+        }
+
         $formFields = $request->validate([
             'title' => ['required'],
             'description' => 'required',
@@ -73,8 +81,20 @@ class CourseController extends Controller
         return back()->with('message', "Course updated successfully!");
     } 
 
+    //delete course
     public function destroy(Course $course){
+
+        //check if logged in user is the owner of the course
+        if($course->user_id != auth()->id()){
+            abort(403, 'Unauthorized action');
+        }
+
          $course->delete();
         return redirect('/courses')->with('message', 'Course deleted successfully!');
+    }
+
+    public function manage(){
+        $courses = auth()->user()->courses;
+        return view('courses.manage', ['courses' => $courses]);
     }
 }

@@ -10,7 +10,7 @@ class Course extends Model
     use HasFactory;
 
     //make fields fillable for mass assignment
-    protected $fillable = ['title', 'description', 'tags', 'duration', 'image'];
+    protected $fillable = ['title', 'description', 'tags', 'duration', 'image', 'user_id'];
 
     //scope for filtering tags and search
     public function scopeFilter($query, array $filters){
@@ -23,5 +23,10 @@ class Course extends Model
                 ->orWhere('tags', 'like', '%' . request('search') . '%')
                 ->orWhere('duration', 'like', '%' . request('search') . '%');
         }
+    }
+
+    //relationship to user
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

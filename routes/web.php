@@ -21,16 +21,16 @@ use App\Http\Controllers\CourseController;
 // });
 
 //get register form
-Route::get('/register', [UserController::class, 'create']);
+Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
 //create a new user
 Route::post('/users', [UserController::class, 'store']);
 
 //log out user
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 //get login form
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
 //log in user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
@@ -41,19 +41,22 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 Route::get('/courses', [CourseController::class, 'getAll']);
 
 //get create form
-Route::get('/courses/create', [CourseController::class, 'create']);
+Route::get('/courses/create', [CourseController::class, 'create'])->middleware('auth');
 
 //create a new course
-Route::post('/courses', [CourseController::class, 'store']);
+Route::post('/courses', [CourseController::class, 'store'])->middleware('auth');
 
 //get edit form
-Route::get('/courses/{course}/edit' , [CourseController::class, 'edit']);
+Route::get('/courses/{course}/edit' , [CourseController::class, 'edit'])->middleware('auth');
 
 //update course
-Route::put('/courses/{course}', [CourseController::class, 'update']);
+Route::put('/courses/{course}', [CourseController::class, 'update'])->middleware('auth');
 
 //delete a course
-Route::delete('/courses/{course}', [CourseController::class, 'destroy']);
+Route::delete('/courses/{course}', [CourseController::class, 'destroy'])->middleware('auth');
+
+//get manage courses
+Route::get('/courses/manage', [CourseController::class, 'manage'])->middleware('auth');
 
 //get a single course
-Route::get('/courses/{course}', [CourseController::class, 'getById']);
+Route::get('/courses/{course}', [CourseController::class, 'getById']);  
