@@ -1,5 +1,9 @@
 <link rel="stylesheet" href="/css/courses.css">
 
+@php
+$flag = request('flag');
+@endphp
+
 <x-layout>
     <x-card>
 
@@ -19,18 +23,9 @@
                         <a href="/courses/{{$course->id}}/edit">Edit</a>
                     </td>
                     <td>
-                        <button id="deleteButton">Delete</button>
-    
-                        <div id="confirmDeleteWindow">
-                            <form method="POST" action="/courses/{{$course->id}}">
-                             @csrf
-                             @method('DELETE')
-                                <button type="submit">
-                                 Confirm
-                                </button>
-                                </form>
-                            <button id="cancelButton">Cancel</button>
-                        </div>
+                        <a href="/courses/manage/?flag={{$course->id}}">
+                            <button>Delete</button>
+                        </a>
                     </td>
                 </tr>
                 @endforeach
@@ -43,34 +38,16 @@
         </table>
 
     </x-card>
+
+    @if($flag)
+    <form method="POST" action="/courses/{{$flag}}">
+     @csrf
+     @method('DELETE')
+
+         <button>Confirm</button>
+         
+        </form>
+        <a href="/courses/manage"><button>Cancel</button></a>
+    @endif
+
 </x-layout>
-
-<script>
-   
-    var myVariable = false;
-    var myVariable2 = true
-   
-    function updateDivVisibility() {
-        var myDiv = document.getElementById("confirmDeleteWindow");
-        if (myVariable) {
-            myDiv.style.display = "flex";
-        } else {
-            myDiv.style.display = "none"; 
-        }
-    }
-    updateDivVisibility();
-
-    var changeValueButton = document.getElementById("deleteButton");
-    changeValueButton.addEventListener("click", function() {
-        
-        myVariable = true;
-        
-        updateDivVisibility();
-    });
-    var changeValueButtonSecond =  document.getElementById("cancelButton");
-    changeValueButtonSecond.addEventListener("click", function() {
-        
-        myVariable = false;
-        updateDivVisibility();
-    });
-</script>

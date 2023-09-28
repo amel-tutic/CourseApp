@@ -4,6 +4,7 @@ use App\Models\Course;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
+use App\Http\Middleware\authProfessor;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,22 +42,22 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 Route::get('/courses', [CourseController::class, 'getAll']);
 
 //get create form
-Route::get('/courses/create', [CourseController::class, 'create'])->middleware('auth');
+Route::get('/courses/create', [CourseController::class, 'create'])->middleware(['auth', authProfessor::class]);
 
 //create a new course
-Route::post('/courses', [CourseController::class, 'store'])->middleware('auth');
+Route::post('/courses', [CourseController::class, 'store'])->middleware(['auth', authProfessor::class]);
 
 //get edit form
-Route::get('/courses/{course}/edit' , [CourseController::class, 'edit'])->middleware('auth');
+Route::get('/courses/{course}/edit' , [CourseController::class, 'edit'])->middleware(['auth', authProfessor::class]);
 
 //update course
-Route::put('/courses/{course}', [CourseController::class, 'update'])->middleware('auth');
+Route::put('/courses/{course}', [CourseController::class, 'update'])->middleware(['auth', authProfessor::class]);
 
 //delete a course
-Route::delete('/courses/{course}', [CourseController::class, 'destroy'])->middleware('auth');
+Route::delete('/courses/{course}', [CourseController::class, 'destroy'])->middleware(['auth', authProfessor::class]);
 
 //get manage courses
-Route::get('/courses/manage', [CourseController::class, 'manage'])->middleware('auth');
+Route::get('/courses/manage', [CourseController::class, 'manage'])->middleware(['auth', authProfessor::class]);
 
 //get a single course
 Route::get('/courses/{course}', [CourseController::class, 'getById']);  
