@@ -71,5 +71,10 @@ class CourseController extends Controller
         $course->update($formFields);
 
         return back()->with('message', "Course updated successfully!");
+    } 
+
+    public function destroy(Course $course){
+         $course->delete();
+        return redirect('/courses')->with('message', 'Course deleted successfully!');
     }
 }

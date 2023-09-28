@@ -25,7 +25,7 @@ header {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 10px;
     background-image: linear-gradient(to right, black, gray);
 }
-header nav ul {
+header nav ul  {
     list-style: none;
     padding: 0;
     float: right; /* Postavljanje navigacije na desnu stranu */
@@ -36,13 +36,14 @@ header nav li {
     margin-right: 20px;
 }
 
-header nav a {
+header nav a, .reglog a {
     text-decoration: none;
     color: #000000;
     font-weight: bold;
     font-size: x-large;
     font-family: "Dancing Script", cursive;
 }
+
 
 header nav a:hover {
     color: #b0d0ef;
@@ -66,6 +67,10 @@ header .logo {
 
 header .logo span {
     display: inline; /* Svako slovo na istom redu */
+}
+
+.error {
+    color: red;
 }
 
 /* Stilizacija za navigaciju */

@@ -26,6 +26,25 @@
                 <li><a href="/contact">Contact</a></li>
             </ul>
         </nav>
+        <div class="reglog">
+            @auth
+                
+            <span>Welcome {{auth()->user()->name}}</span>
+            <a href="/courses/manage">Manage Courses</a>
+            
+            <form method="POST" action="/logout">
+                @csrf
+                <button type="submit"> 
+                    Logout
+                </button>
+            </form>
+
+            @else
+            <a href="/register">Register</a>
+            <a href="/login">Login</a>
+
+            @endauth
+        </div>
     </header>
     
     <x-flash-message />
