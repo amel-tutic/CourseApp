@@ -2,25 +2,53 @@
 
     <link rel="stylesheet" href="/css/courses.css">
 
+    <header>
+        <h1>Manage Lessons</h1>
+    </header>
 
-    @unless (count($lessons) == 0)
+    <table>
+        <tbody>
+            @unless ($lessons->isEmpty())   
+            @foreach ($lessons as $lesson)
+            <tr>
+                <td>
+                    <a href="/lessons/{{$lesson->id}}">{{$lesson->title}}</a>
+                </td>
+                <td>
+                    <a href="/lessons/{{$lesson->id}}/edit?course={{$lesson->course_id}}">Edit</a>
+                </td>
+                <td>
+                    <a href="/lessons/manage?course={{$lesson->course_id}}&flag={{$lesson->id}}">
+                        <button>Delete</button>
+                    </a>
+                </td>
+            </tr>
+            @endforeach
+            @else
+            <tr>
+                <td>You don't have any lessons yet.</td>
+            </tr>
+            @endunless
+        </tbody>
+    </table>
+    <a href="/lessons/create?course={{request('course')}}">
+        <button>+ Add new lesson</button>
+    </a>
 
-    @foreach($lessons as $lesson)
+    @php
+        $flag = request('flag');
+        $courseid = request('course');
+    @endphp
 
-        <h2>{{$lesson->title}}</h2>
+    @if($flag)
+    <form method="POST" action="/lessons/{{$flag}}">
+     @csrf
+     @method('DELETE')
 
-        <p>{{$lesson->description}}</p>
-
-        <span>{{$lesson->content}}</span>
-
-        <img class="image"
-         src="{{$lesson->image ? asset('storage/' . $lesson->image) : asset('/storage/images/no-image.jpg')}}">
-
-    @endforeach
-
-    @else
-    <p>No lessons found</p>
-
-    @endunless  
+         <button>Confirm</button>
+         
+        </form>
+        <a href="/lessons/manage?course={{$courseid}}"><button>Cancel</button></a>
+    @endif
 
 </x-layout>

@@ -28,11 +28,6 @@ $flag = request('flag');
                         </a>
                     </td>
                     <td>
-                        <a href="/lessons/create?course={{$course->id}}">
-                            <button>+ Add new lesson</button>
-                        </a>
-                    </td>
-                    <td>
                         <a href="/lessons/manage?course={{$course->id}}">
                             <button>Manage lessons</button>
                         </a>

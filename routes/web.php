@@ -22,6 +22,9 @@ use App\Http\Controllers\LessonController;
 //     return view('layout');
 // });
 
+
+/////////////////////////////// user routes /////////////////////////////
+
 //get register form
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
@@ -38,8 +41,7 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 
-
-
+/////////////////////////////// course routes ////////////////////////////////
 
 //get all courses
 Route::get('/courses', [CourseController::class, 'getAll']);
@@ -66,7 +68,7 @@ Route::get('/courses/manage', [CourseController::class, 'manage'])->middleware([
 Route::get('/courses/{course}', [CourseController::class, 'getById']);  
 
 
-
+////////////////////////////// lesson routes ////////////////////////////
 
 //get lesson form
 Route::get('/lessons/create', [LessonController::class, 'create'])->middleware(['auth', authProfessor::class]);
@@ -76,6 +78,17 @@ Route::post('/lessons/create', [LessonController::class, 'store'])->middleware([
 
 //get all lessons
 Route::get('/lessons/manage', [LessonController::class, 'getAll'])->middleware(['auth', authProfessor::class]);
+
+//get edit form
+Route::get('/lessons/{lesson}/edit', [LessonController::class, 'edit'])->middleware(['auth', authProfessor::class]);
+
+//update a lesson
+Route::put('lessons/{lesson}', [LessonController::class, 'update'])->middleware(['auth', authProfessor::class]);
+
+//delete a lesson
+Route::delete('/lessons/{lesson}', [LessonController::class, 'destroy'])->middleware(['auth', authProfessor::class]);
+
+
 
 
 
