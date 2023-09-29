@@ -2,9 +2,10 @@
 
 use App\Models\Course;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\authProfessor;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
-use App\Http\Middleware\authProfessor;
+use App\Http\Controllers\LessonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,8 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 
 
+
+
 //get all courses
 Route::get('/courses', [CourseController::class, 'getAll']);
 
@@ -61,3 +64,18 @@ Route::get('/courses/manage', [CourseController::class, 'manage'])->middleware([
 
 //get a single course
 Route::get('/courses/{course}', [CourseController::class, 'getById']);  
+
+
+
+
+//get lesson form
+Route::get('/lessons/create', [LessonController::class, 'create'])->middleware(['auth', authProfessor::class]);
+
+//create a new lesson
+Route::post('/lessons/create', [LessonController::class, 'store'])->middleware(['auth', authProfessor::class]);
+
+//get all lessons
+Route::get('/lessons/manage', [LessonController::class, 'getAll'])->middleware(['auth', authProfessor::class]);
+
+
+

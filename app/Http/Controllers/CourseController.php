@@ -48,7 +48,7 @@ class CourseController extends Controller
         
         Course::create($formFields);
 
-        return redirect('/courses')->with('message', "Course created successfully!");
+        return redirect('/courses/manage')->with('message', "Course created successfully!");
     }
 
     //get edit form
@@ -93,6 +93,7 @@ class CourseController extends Controller
         return redirect('/courses/manage')->with('message', 'Course deleted successfully!');
     }
 
+    //get manage page
     public function manage(){
         $courses = auth()->user()->courses;
         return view('courses.manage', ['courses' => $courses]);

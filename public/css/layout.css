@@ -1,10 +1,9 @@
 body {
-    margin: 0; /* Uklanja marginu */
-    padding: 0; /* Uklanja padding */
-    /* Postavlja minimalnu visinu na 100vh */
+    margin: 0;
+    padding: 0; 
 }
 .logo {
-    width: 10rem;
+    width: 12rem;
 }
 #layoutMain {
     display: flex;
@@ -23,12 +22,13 @@ header {
     text-align: center;
     border-bottom: 1px solid rgba(23, 22, 22, 0.122);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 10px;
-    background-image: linear-gradient(to right, black, gray);
+    /* background-image: linear-gradient(to right, rgb(31, 31, 31), rgb(62, 62, 62)); */
+    background-color: #9EA3A8;
 }
 header nav ul  {
     list-style: none;
     padding: 0;
-    float: right; /* Postavljanje navigacije na desnu stranu */
+    float: right; 
 }
 
 header nav li {
@@ -41,7 +41,7 @@ header nav a, .reglog a {
     color: #000000;
     font-weight: bold;
     font-size: x-large;
-    font-family: "Dancing Script", cursive;
+    /* font-family: "Dancing Script", cursive; */
 }
 
 
@@ -59,14 +59,11 @@ footer {
     background-image: linear-gradient(to right, black, gray);
 }
 header .logo {
-    font-size: 50px; /* Prilagodite veličinu slova prema potrebi */
-    font-weight: bold; /* Podešavanje debljine slova */
-    color: rgb(232, 220, 54); /* Postavljanje boje slova na zlatnu */
-    float: left; /* Postavljanje logoa na levu stranu */
+    float: left; 
 }
 
 header .logo span {
-    display: inline; /* Svako slovo na istom redu */
+    display: inline;
 }
 
 .error {

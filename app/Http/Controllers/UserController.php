@@ -22,8 +22,12 @@ class UserController extends Controller
             'password' => 'required|confirmed|min:6'
         ]);
 
-
-        $formFields['role'] = 'student';
+        if($request['role']){
+                $formFields['role'] = $request['role'];   
+        }
+        else
+            $formFields['role'] = 'student';
+      
 
     //hash password
     

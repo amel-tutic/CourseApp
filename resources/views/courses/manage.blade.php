@@ -27,6 +27,16 @@ $flag = request('flag');
                             <button>Delete</button>
                         </a>
                     </td>
+                    <td>
+                        <a href="/lessons/create?course={{$course->id}}">
+                            <button>+ Add new lesson</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/lessons/manage?course={{$course->id}}">
+                            <button>Manage lessons</button>
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
                 @else
@@ -37,7 +47,10 @@ $flag = request('flag');
             </tbody>
         </table>
 
+        
     </x-card>
+    
+    <a href="/courses/create"><button>+ Add new course</button></a>
 
     @if($flag)
     <form method="POST" action="/courses/{{$flag}}">

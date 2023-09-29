@@ -3,7 +3,7 @@
     <h2>Register</h2>
     <p>Create an account to add or enroll in courses</p>
 
-    <form method="POST" action="/users">
+    <form method="POST" action="/users?role={{request('role')}}">
     @csrf
 
     <label for="name">Name:</label>

@@ -9,19 +9,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href={{ asset('css/layout.css') }}>
-    {{-- <link rel="icon" href={{ asset('img/logo.png') }} type="image/x-icon"> --}}
-    <title>Courses</title>
+    <link rel="icon" href={{ asset('img/cube.png') }} type="image/x-icon">
+    <title>Cubikly</title>
 </head>
 <body>
     <div id="layoutMain">
     <header>
         <div class="logo">
-            <img src={{ asset('img/logo4.png') }} alt="Cubickly" class="logo">
+            <a href="/courses"><img src={{ asset('img/logoblueorange2.png') }} alt="Cubickly" class="logo"></a>
         </div>
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/about">About Us</a></li>
+                <li><a href="/register?role=professor">Be a professor</a></li>
+                <li><a href="/register?role=student">Be a student</a></li>
                 <li><a href="/courses">Courses</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
@@ -54,7 +55,7 @@
     </main>
 
     <footer>
-        <p>&copy;2023 By Amel Tutic</p>
+        <p>&copy;2023 All Rights Reserved.</p>
     </footer>
 
 </div>
