@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Course;
+use App\Http\Middleware\authStudent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\authProfessor;
 use App\Http\Controllers\UserController;
@@ -73,6 +74,9 @@ Route::get('/courses/manage', [CourseController::class, 'manage'])->middleware([
 //get a single course
 Route::get('/courses/{course}', [CourseController::class, 'getById']);  
 
+//get enroll
+Route::get('/courses/enroll', [CourseController::class, 'enroll']);
+
 
 ////////////////////////////// lesson routes ////////////////////////////
 
@@ -122,6 +126,31 @@ Route::delete('/questions/{question}', [QuestionController::class, 'destroy'])->
 Route::get('/qustions/{question}', [QuestionController::class, 'getById'])->middleware(['auth', authProfessor::class]);
 
 //get test
-Route::get('/questions/test', [QuestionController::class, 'test'])->middleware(['auth', authProfessor::class]);;
+Route::get('/questions/test', [QuestionController::class, 'test'])->middleware(['auth', authStudent::class]);
+
+//generate test
+Route::post('/questions/test/generate', [QuestionController::class, 'generate'])->middleware(['auth', authStudent::class]);
+
+//evaluate test
+Route::post('questions/test/evaluate', [QuestionController::class, 'evaluate'])->middleware(['auth', authStudent::class]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

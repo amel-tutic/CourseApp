@@ -10,4 +10,8 @@
 </p>
 <x-course-tags :tagsProp="$course->tags" />
 
+<a href="/courses/enroll?course={{$course->id}}&userid={{auth()->user()->id}}">
+    <button>Enroll</button>    
+</a>
+
 </x-card>

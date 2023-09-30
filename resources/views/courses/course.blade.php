@@ -8,6 +8,11 @@
 <h1>{{$course->title}}</h1>
 
 <p>{{$course->description}}</p>
+
+<a href="/courses/enroll?course={{$course->id}}&userid={{auth()->user()->id}}">
+    <button>Enroll</button>    
+</a>
+
 </x-card>
 
 </x-layout>

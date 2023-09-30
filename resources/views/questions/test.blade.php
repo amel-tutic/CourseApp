@@ -5,7 +5,7 @@
 
     <p>Choose the difficulty to proceed, and choose carefully</p>
 
-    <form method="POST" action="">
+    <form method="POST" action="/questions/test/generate?course={{$course}}">
     @csrf
 
     <input type="radio" name="diff" value="easy"> <label for="easy">Easy</label>

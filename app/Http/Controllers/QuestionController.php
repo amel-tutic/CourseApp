@@ -82,6 +82,49 @@ class QuestionController extends Controller
         ]);
     }
 
+    //generate test
+    public function generate(Request $request){
+        $diff = $request['diff'];
+        $courseid = $request['course'];
 
+        return view('questions.generate', [
+            'diff' => $request['diff'],
+            'courseid' => $request['course'],
+            'questions' => Question::all()->where('course_id', '=', $courseid)->where('difficulty', '=', $diff)
+        ]);
+    }
+
+    //evaluate test
+    public function evaluate(Request $request){
+        // $answered = request()->input('answers');
+        $answered = $request->input('answers');
+        $courseid = $request['course'];
+        // dd($answered);
+
+        $results = [];
+        $questionres = [];
+    
+        foreach ($answered as $questionid => $answer) {
+            $question = Question::find($questionid);
+            $question->attempts++;
+            array_push($questionres, $question);
+
+            if ($question->answer === $answer) {
+                $results[$questionid] = true; 
+                $question->successes++;
+            } else {
+                $results[$questionid] = false;
+            }
+
+            $question->save();
+        }
+        // dd($results);
+
+        return view('questions.evaluate', [
+            'results' => $results,
+            'courseid' => $courseid,
+            'questionres' => $questionres
+        ]);
+    }
 
 }
