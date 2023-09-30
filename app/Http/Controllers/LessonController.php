@@ -17,7 +17,7 @@ class LessonController extends Controller
     //create a lesson
     public function store(Request $request){
         $formFields = $request->validate([
-            'title' => ['required', Rule::unique('lessons', 'title')],
+            'title' => ['required'],
             'description' => 'required',
             'content' => 'required'
         ]);
@@ -27,10 +27,11 @@ class LessonController extends Controller
         }
 
         $formFields['course_id'] = $request['course'];
+        $courseid= $request['course'];
         
         Lesson::create($formFields);
 
-        return redirect('/courses/manage')->with('message', "Lesson created successfully!");
+        return redirect("/lessons/manage?course=$courseid")->with('message', "Lesson created successfully!");
     }
 
     //get all lessons
@@ -70,6 +71,12 @@ class LessonController extends Controller
     public function destroy(Lesson $lesson){
         $lesson->delete();
         return redirect("/lessons/manage?course=$lesson->course_id")->with('message', 'Lesson deleted successfully!');
+    }
+
+    public function getById(Lesson $lesson){
+        return view('lessons.lesson', [
+            'lesson' => $lesson
+        ]);
     }
 
 }

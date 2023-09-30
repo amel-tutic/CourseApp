@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/courses.css">
+<link rel="stylesheet" href="{{asset('css/courses.css')}}">
 
 <x-layout>
 
@@ -8,7 +8,7 @@
         @csrf
         @method('PUT')
     
-        <h2>Edit: {{$lesson->title}} </h2>
+        <h2>Edit: <a href="/lessons/{{$lesson->id}}">{{$lesson->title}}</a> </h2>
     
         <label for="title">Title:</label>
         <input type="text" name="title" placeholder="title" value="{{$lesson->title}}">
@@ -27,7 +27,7 @@
         <br> <br>
     
         <label for="content">Content:</label>
-        <input type="text" name="content" placeholder="content" value="{{$lesson->content}}">
+        <textarea type="text" name="content" placeholder="content">{{$lesson->content}}</textarea>
         @error('content')
             <p class="error">{{$message}}</p>
         @enderror

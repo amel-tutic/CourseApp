@@ -22,6 +22,11 @@ use App\Http\Controllers\LessonController;
 //     return view('layout');
 // });
 
+//get home page
+Route::get('/', function(){
+    return view('home');
+});
+
 
 /////////////////////////////// user routes /////////////////////////////
 
@@ -88,7 +93,8 @@ Route::put('lessons/{lesson}', [LessonController::class, 'update'])->middleware(
 //delete a lesson
 Route::delete('/lessons/{lesson}', [LessonController::class, 'destroy'])->middleware(['auth', authProfessor::class]);
 
-
+//get a single lesson
+Route::get('/lessons/{lesson}', [LessonController::class, 'getById'])->middleware(['auth', authProfessor::class]);
 
 
 

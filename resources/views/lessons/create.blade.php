@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/create.css">
+<link rel="stylesheet" href="{{asset('css/create.css')}}">
 
 <x-layout>
 

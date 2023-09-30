@@ -16,7 +16,7 @@
     <div id="layoutMain">
     <header>
         <div class="logo">
-            <a href="/courses"><img src={{ asset('img/logoblueorange2.png') }} alt="Cubickly" class="logo"></a>
+            <a href="/"><img src={{ asset('img/logoblueorange2.png') }} alt="Cubickly" class="logo"></a>
         </div>
         <nav>
             <ul>
@@ -30,7 +30,7 @@
         <div class="reglog">
             @auth
                 
-            <span>Welcome {{auth()->user()->name}}</span>
+            <span class="welcome">Welcome {{auth()->user()->name}}</span>
             <a href="/courses/manage">Manage Courses</a>
             
             <form method="POST" action="/logout">

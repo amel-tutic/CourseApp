@@ -1,0 +1,14 @@
+.join{
+    display: flex;
+    height: 570px;
+}
+
+.studentimage{
+    width: 30%;
+ 
+}
+
+.professorimage{
+    width: 25%;
+
+}

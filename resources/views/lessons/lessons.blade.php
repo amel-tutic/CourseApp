@@ -1,6 +1,6 @@
 <x-layout>
 
-    <link rel="stylesheet" href="/css/courses.css">
+    <link rel="stylesheet" href="{{asset('css/courses.css')}}">
 
     <header>
         <h1>Manage Lessons</h1>

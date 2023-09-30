@@ -1,7 +1,7 @@
 <x-layout>
 
 <x-card>
-<link rel="stylesheet" href="/css/courses.css">
+<link rel="stylesheet" href="{{asset('css/courses.css')}}">
 
 <img class="image" src="{{$course->image ? asset('storage/' . $course->image) : asset('/storage/images/no-image.jpg')}}" alt="">
 
