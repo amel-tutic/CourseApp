@@ -34,7 +34,7 @@
             @if(auth()->user()->role == 'admin' || auth()->user()->role == 'professor')
             <a href="/courses/manage">Manage Courses</a>
             @else
-            <a href="/enrolled/courses?userid={{auth()->user()->id}}">My Courses</a>
+            <a href="/enroll/manage?userid={{auth()->user()->id}}">My Courses</a>
 
             @endif
 

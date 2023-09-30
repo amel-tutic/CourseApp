@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Course;
 use App\Models\Enrollment;
 use Illuminate\Http\Request;
@@ -40,9 +41,26 @@ class EnrollmentController extends Controller
             array_push($courses, $course);
         }
         
+        if(auth()->user()->id != $userid){
+            return back()->with('message', 'Unauthorized access!');
+        }
+        
         return view('enrollments.enrollments', [
             'enrollments' => $enrollments,
             'courses' => $courses
         ]);
+    }
+
+    //delete enrollment
+    public function destroy(Enrollment $enrollment){
+        $userid = request('userid');
+
+        if(auth()->user()->id != $userid){
+            return back()->with('message', 'Unauthorized access!');
+        }
+
+        $enrollment->delete();
+        
+        return redirect("/enroll/manage?userid=$userid")->with('message', 'Successfully abandoned course');
     }
 }

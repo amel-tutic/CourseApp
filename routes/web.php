@@ -140,8 +140,10 @@ Route::post('/enroll', [EnrollmentController::class, 'enroll'])->middleware(['au
 
 
 //get enrolled courses
-Route::get('/enrolled/courses', [EnrollmentController::class, 'getCourses'])->middleware(['auth', authStudent::class]);
+Route::get('/enroll/manage', [EnrollmentController::class, 'getCourses'])->middleware(['auth', authStudent::class]);
 
+//delete enrollment
+Route::delete('/enroll/{enrollment}', [EnrollmentController::class, 'destroy'])->middleware(['auth', authStudent::class]);
 
 
 
