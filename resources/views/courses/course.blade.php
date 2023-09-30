@@ -9,9 +9,10 @@
 
 <p>{{$course->description}}</p>
 
-<a href="/courses/enroll?course={{$course->id}}&userid={{auth()->user()->id}}">
+<form method="POST" action="/enroll?course={{$course->id}}&userid={{auth()->user()->id}}">
+    @csrf
     <button>Enroll</button>    
-</a>
+</form>
 
 </x-card>
 

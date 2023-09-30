@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\EnrollmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,9 +75,6 @@ Route::get('/courses/manage', [CourseController::class, 'manage'])->middleware([
 //get a single course
 Route::get('/courses/{course}', [CourseController::class, 'getById']);  
 
-//get enroll
-Route::get('/courses/enroll', [CourseController::class, 'enroll']);
-
 
 ////////////////////////////// lesson routes ////////////////////////////
 
@@ -135,6 +133,10 @@ Route::post('/questions/test/generate', [QuestionController::class, 'generate'])
 Route::post('questions/test/evaluate', [QuestionController::class, 'evaluate'])->middleware(['auth', authStudent::class]);
 
 
+/////////////////////////// enrollment routes ///////////////////////////
+
+//enroll
+Route::post('/enroll', [EnrollmentController::class, 'enroll'])->middleware(['auth', authStudent::class]);
 
 
 

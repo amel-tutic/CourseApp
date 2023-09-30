@@ -99,8 +99,4 @@ class CourseController extends Controller
         return view('courses.manage', ['courses' => $courses]);
     }
 
-    //get enroll
-    public function enroll(){
-        
-    }
 }

@@ -42,4 +42,9 @@ class Course extends Model
     public function questions(){
         return $this->hasMany(Question::class, 'course_id');
     }
+
+    //relation to enrollment
+    public function enrollments(){
+        return $this->hasMany(Enrollment::class, 'course_id');
+    }
 }
