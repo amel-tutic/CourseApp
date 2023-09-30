@@ -44,7 +44,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    //relationship to courses
+    //relation to course
     public function courses(){
         return $this->hasMany(Course::class, 'user_id');
     }

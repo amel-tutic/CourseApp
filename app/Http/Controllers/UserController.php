@@ -26,7 +26,7 @@ class UserController extends Controller
                 $formFields['role'] = $request['role'];   
         }
         else
-            $formFields['role'] = 'student';
+            $formFields['role'] = $request['crole'];
       
 
     //hash password

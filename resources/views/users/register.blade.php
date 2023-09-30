@@ -36,6 +36,16 @@
         <p class="error">{{$message}}</p>
     @enderror
 
+        <br> <br>
+
+        @if (!request('role'))
+            <label for="role">Choose desired role:</label> <br>
+            <input type="radio" name="crole" id="student" value="student"> <label for="student">Student</label> <br>
+            <input type="radio" name="crole" id="professor" value="professor"> <label for="professor">Professor</label> <br>
+        @endif
+
+        <br> <br>
+
     <button type="submit">Sign Up</button>
 
     <br> <br> <br>

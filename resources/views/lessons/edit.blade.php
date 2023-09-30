@@ -2,8 +2,6 @@
 
 <x-layout>
 
-
-
     <form method="POST" action="/lessons/{{$lesson->id}}?course={{$lesson->course_id}}" enctype="multipart/form-data">
         @csrf
         @method('PUT')

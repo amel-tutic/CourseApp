@@ -6,6 +6,7 @@ use App\Http\Middleware\authProfessor;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\QuestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,5 +97,31 @@ Route::delete('/lessons/{lesson}', [LessonController::class, 'destroy'])->middle
 //get a single lesson
 Route::get('/lessons/{lesson}', [LessonController::class, 'getById'])->middleware(['auth', authProfessor::class]);
 
+
+////////////////////////////// question routes ////////////////////////////
+
+//get question form
+Route::get('/questions/create', [QuestionController::class, 'create'])->middleware(['auth', authProfessor::class]);
+
+//create a new question
+Route::post('/questions/create', [QuestionController::class, 'store'])->middleware(['auth', authProfessor::class]);
+
+//get all questions
+Route::get('/questions/manage', [QuestionController::class, 'getAll'])->middleware(['auth', authProfessor::class]);
+
+//get edit form
+Route::get('/questions/{question}/edit', [QuestionController::class, 'edit'])->middleware(['auth', authProfessor::class]);
+
+//update a question
+Route::put('questions/{question}', [QuestionController::class, 'update'])->middleware(['auth', authProfessor::class]);
+
+//delete a question
+Route::delete('/questions/{question}', [QuestionController::class, 'destroy'])->middleware(['auth', authProfessor::class]);
+
+//get a single qustion
+Route::get('/qustions/{question}', [QuestionController::class, 'getById'])->middleware(['auth', authProfessor::class]);
+
+//get test
+Route::get('/questions/test', [QuestionController::class, 'test'])->middleware(['auth', authProfessor::class]);;
 
 

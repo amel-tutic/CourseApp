@@ -28,12 +28,18 @@ class Course extends Model
     
 
 
-    //relationship to user
+    //relation to user
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
     }
-
+    
+    //relation to lessons
     public function lessons(){
         return $this->hasMany(Lesson::class, 'course_id');
+    }
+
+    //relation to questions
+    public function questions(){
+        return $this->hasMany(Question::class, 'course_id');
     }
 }

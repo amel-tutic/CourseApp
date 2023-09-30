@@ -32,6 +32,16 @@ $flag = request('flag');
                             <button>Manage lessons</button>
                         </a>
                     </td>
+                    <td>
+                        <a href="/questions/manage?course={{$course->id}}">
+                            <button>Manage test</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/questions/test?course={{$course->id}}">
+                            <button>Test Yourself!</button>
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
                 @else
