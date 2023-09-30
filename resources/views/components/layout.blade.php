@@ -28,17 +28,23 @@
             </ul>
         </nav>
         <div class="reglog">
+           
             @auth
-                
             <span class="welcome">Welcome {{auth()->user()->name}}</span>
+            @if(auth()->user()->role == 'admin' || auth()->user()->role == 'professor')
             <a href="/courses/manage">Manage Courses</a>
-            
+            @else
+            <a href="/enrolled/courses?userid={{auth()->user()->id}}">My Courses</a>
+
+            @endif
+
             <form method="POST" action="/logout">
                 @csrf
                 <button type="submit"> 
                     Logout
                 </button>
             </form>
+          
 
             @else
             <a href="/register">Register</a>

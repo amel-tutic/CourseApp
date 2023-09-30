@@ -10,10 +10,12 @@
 </p>
 <x-course-tags :tagsProp="$course->tags" />
 
+@auth
 <form method="POST" action="/enroll?course={{$course->id}}&userid={{auth()->user()->id}}">
     @csrf
     <button>Enroll</button>    
 </form>
+@endauth
 
 
 </x-card>

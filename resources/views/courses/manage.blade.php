@@ -19,6 +19,7 @@ $flag = request('flag');
                     <td>
                         <a href="/courses/{{$course->id}}">{{$course->title}}</a>
                     </td>
+                    {{-- @if(auth()->user()->role == 'admin' || auth()->user()->role == 'professor') --}}
                     <td>
                         <a href="/courses/{{$course->id}}/edit">Edit</a>
                     </td>
@@ -37,6 +38,7 @@ $flag = request('flag');
                             <button>Manage test</button>
                         </a>
                     </td>
+                    {{-- @endif --}}
                     <td>
                         <a href="/questions/test?course={{$course->id}}">
                             <button>Test Yourself!</button>

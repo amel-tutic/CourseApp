@@ -139,6 +139,9 @@ Route::post('questions/test/evaluate', [QuestionController::class, 'evaluate'])-
 Route::post('/enroll', [EnrollmentController::class, 'enroll'])->middleware(['auth', authStudent::class]);
 
 
+//get enrolled courses
+Route::get('/enrolled/courses', [EnrollmentController::class, 'getCourses'])->middleware(['auth', authStudent::class]);
+
 
 
 
