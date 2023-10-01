@@ -70,4 +70,20 @@ class UserController extends Controller
         }
         return back()->withErrors(['email' => 'Invalid credientals'])->onlyInput('email');
     }
+
+    //get all users
+    public function manage(){
+        $users = User::all();
+
+        return view('users.manage', [
+            'users' => $users
+        ]);
+    }
+
+    //delete a user
+    public function destroy(User $user){
+        $user->delete();
+
+        return back()->with('message', 'User deleted successfully');
+    }
 }

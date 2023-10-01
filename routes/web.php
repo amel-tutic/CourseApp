@@ -2,6 +2,7 @@
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use App\Http\Middleware\authAdmin;
 use App\Http\Middleware\authStudent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\authProfessor;
@@ -49,6 +50,13 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 
 //log in user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+//get all users
+Route::get('users/manage', [UserController::class, 'manage'])->middleware(['auth', authAdmin::class]);
+
+//delete user
+Route::delete('users/{user}', [UserController::class, 'destroy'])->middleware(['auth', authAdmin::class]);
+
 
 
 /////////////////////////////// course routes ////////////////////////////////

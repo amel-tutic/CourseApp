@@ -48,13 +48,17 @@
 
             @endif
 
+            @if(auth()->user()->role == 'admin')
+                <a href="/users/manage">Manage Users</a>
+            
+            @endif
+
             <form method="POST" action="/logout">
                 @csrf
                 <button type="submit"> 
                     Logout
                 </button>
             </form>
-          
 
             @else
             <a href="/register">Register</a>
