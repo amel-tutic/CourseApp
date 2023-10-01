@@ -81,9 +81,24 @@ class LessonController extends Controller
         $next_record = Lesson::where('id', '>', $lesson->id)->where('course_id', $lesson->course_id)->orderBy('id')->first();
         // }
 
+        $previous_record = Lesson::where('id', '<', $lesson->id)->where('course_id', $lesson->course_id)->orderBy('id','desc')->first();
+
+        if(!$next_record) {
+           $flagn = 1;
+        }
+        else $flagn = null;
+
+        if(!$previous_record) {
+            $flag = 1;
+        }
+        else $flag = null;
+
         return view('lessons.lesson', [
             'lesson' => $lesson,
-            'next_record' => $next_record
+            'next_record' => $next_record,
+            'previous_record' => $previous_record,
+            'flag' => $flag,
+            'flagn' => $flagn
         ]);
     }
 

@@ -64,4 +64,14 @@ class EnrollmentController extends Controller
         
         return redirect("/enroll/manage?userid=$userid")->with('message', 'Successfully abandoned course');
     }
+
+    public function finish(Request $request){
+        $enrollment = Enrollment::where('user_id', $request['userid'])->where('course_id', $request['course'])->get()->first();
+
+        $enrollment->finished = 1;
+
+        $enrollment->save();
+
+        return redirect("/enroll/manage?userid=$enrollment->user_id")->with('message', 'You finished the course. Test Yourself!');
+    }
 }

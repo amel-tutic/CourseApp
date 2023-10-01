@@ -11,15 +11,29 @@
     <span>{{$lesson->content}}</span>
 
 
-    @php
-        if(!$next_record) {
-            $next_record = $lesson;
-        }
-    @endphp
+    @if($flag != 1)
+    <a href="/lessons/{{$previous_record->id}}">
+    <button>Previous Lesson</button>
+    </a>
+    
+    @else
+    <a href="/lessons/manage?course={{$lesson->course_id}}">
+        <button>Back to lessons</button>
+    @endif
 
+    @if($flagn != 1)
     <a href="/lessons/{{$next_record->id}}">
     <button>Next Lesson</button>
     </a>
 
+    @else
+   <form method="POST" action="/enroll/finish?course={{$lesson->course_id}}&userid={{auth()->user()->id}}">
+    @csrf
+
+    <button>Finish Course</button>
+
+    </form>
+
+    @endif
     </x-layout>
     

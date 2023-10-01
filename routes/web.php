@@ -147,10 +147,11 @@ Route::get('/enroll/manage', [EnrollmentController::class, 'getCourses'])->middl
 //delete enrollment
 Route::delete('/enroll/{enrollment}', [EnrollmentController::class, 'destroy'])->middleware(['auth', authStudent::class]);
 
+//finish course
+Route::post('/enroll/finish', [EnrollmentController::class, 'finish'])->middleware(['auth', authStudent::class]);
 
 
-
-// //////////////////////////////// password reset //////////////////////////////////
+////////////////////////////////// password reset //////////////////////////////////
 
 // //get form
 // Route::get('/forgot-password', function () {
