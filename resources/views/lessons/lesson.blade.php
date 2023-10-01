@@ -9,6 +9,17 @@
     <p>{{$lesson->description}}</p>
 
     <span>{{$lesson->content}}</span>
-    
+
+
+    @php
+        if(!$next_record) {
+            $next_record = $lesson;
+        }
+    @endphp
+
+    <a href="/lessons/{{$next_record->id}}">
+    <button>Next Lesson</button>
+    </a>
+
     </x-layout>
     

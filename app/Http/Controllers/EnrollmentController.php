@@ -31,6 +31,7 @@ class EnrollmentController extends Controller
 
     //get enrolled courses
     public function getCourses(){
+
         $userid = request('userid');
         $enrollments = Enrollment::all()->where('user_id', $userid);
 

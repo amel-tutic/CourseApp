@@ -33,6 +33,13 @@
         <a href="/register">Sign Up</a>
     </div>
 
+    <br> <br>
+
+    {{-- <div>
+        <p>Forgot password?</p>
+        <a href="/forgot-password">Click here to reset password.</a>
+    </div> --}}
+
     </form>
 
 </x-layout>

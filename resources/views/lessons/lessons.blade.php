@@ -3,8 +3,12 @@
     <link rel="stylesheet" href="{{asset('css/courses.css')}}">
 
     <header>
-        <h1>Manage Lessons</h1>
+        <h1>Start Lessons</h1>
     </header>
+
+@php
+    $lessonnumber = 0
+@endphp
 
     <table>
         <tbody>
@@ -12,8 +16,11 @@
             @foreach ($lessons as $lesson)
             <tr>
                 <td>
-                    <a href="/lessons/{{$lesson->id}}">{{$lesson->title}}</a>
+                    <a href="/lessons/{{$lesson->id}}">Lesson {{++$lessonnumber}}: {{$lesson->title}}</a>
                 </td>
+
+                @auth
+                @if (auth()->user()->role == 'professor' || auth()->user()->role =='admin') 
                 <td>
                     <a href="/lessons/{{$lesson->id}}/edit?course={{$lesson->course_id}}">Edit</a>
                 </td>
@@ -22,6 +29,8 @@
                         <button>Delete</button>
                     </a>
                 </td>
+                @endif
+                @endauth
             </tr>
             @endforeach
             @else

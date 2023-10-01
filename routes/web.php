@@ -1,10 +1,12 @@
 <?php
 
 use App\Models\Course;
+use Illuminate\Http\Request;
 use App\Http\Middleware\authStudent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\authProfessor;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\QuestionController;
@@ -85,7 +87,7 @@ Route::get('/lessons/create', [LessonController::class, 'create'])->middleware([
 Route::post('/lessons/create', [LessonController::class, 'store'])->middleware(['auth', authProfessor::class]);
 
 //get all lessons
-Route::get('/lessons/manage', [LessonController::class, 'getAll'])->middleware(['auth', authProfessor::class]);
+Route::get('/lessons/manage', [LessonController::class, 'getAll'])->middleware(['auth', authStudent::class]);
 
 //get edit form
 Route::get('/lessons/{lesson}/edit', [LessonController::class, 'edit'])->middleware(['auth', authProfessor::class]);
@@ -97,7 +99,7 @@ Route::put('lessons/{lesson}', [LessonController::class, 'update'])->middleware(
 Route::delete('/lessons/{lesson}', [LessonController::class, 'destroy'])->middleware(['auth', authProfessor::class]);
 
 //get a single lesson
-Route::get('/lessons/{lesson}', [LessonController::class, 'getById'])->middleware(['auth', authProfessor::class]);
+Route::get('/lessons/{lesson}', [LessonController::class, 'getById'])->middleware(['auth', authStudent::class]);
 
 
 ////////////////////////////// question routes ////////////////////////////
@@ -148,10 +150,30 @@ Route::delete('/enroll/{enrollment}', [EnrollmentController::class, 'destroy'])-
 
 
 
+// //////////////////////////////// password reset //////////////////////////////////
 
+// //get form
+// Route::get('/forgot-password', function () {
+//     return view('auth.forgot-password');
+// })->middleware('guest')->name('password.request');
 
+// //send email
+// Route::post('/forgot-password', function (Request $request) {
+//     $request->validate(['email' => 'required|email']);
+ 
+//     $status = Password::sendResetLink(
+//         $request->only('email')
+//     );
+ 
+//     return $status === Password::RESET_LINK_SENT
+//                 ? back()->with(['status' => __($status)])
+//                 : back()->withErrors(['email' => __($status)]);
+// })->middleware('guest')->name('password.email');
 
-
+// //get token
+// Route::get('/reset-password/{token}', function (string $token) {
+//     return view('auth.reset-password', ['token' => $token]);
+// })->middleware('guest')->name('password.reset');
 
 
 

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\Lesson;
+use Termwind\Components\Li;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use Termwind\Components\Li;
 
 class LessonController extends Controller
 {
@@ -74,8 +75,15 @@ class LessonController extends Controller
     }
 
     public function getById(Lesson $lesson){
+        // $courses = Course::all()->where('id', $lesson->course_id);
+
+        // foreach($courses as $course){
+        $next_record = Lesson::where('id', '>', $lesson->id)->where('course_id', $lesson->course_id)->orderBy('id')->first();
+        // }
+
         return view('lessons.lesson', [
-            'lesson' => $lesson
+            'lesson' => $lesson,
+            'next_record' => $next_record
         ]);
     }
 
