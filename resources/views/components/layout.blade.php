@@ -53,6 +53,8 @@
             
             @endif
 
+            <a href="/users/profile/{{auth()->user()->id}}">My Profile</a>
+
             <form method="POST" action="/logout">
                 @csrf
                 <button type="submit"> 

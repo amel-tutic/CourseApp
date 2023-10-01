@@ -52,11 +52,19 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 //get all users
-Route::get('users/manage', [UserController::class, 'manage'])->middleware(['auth', authAdmin::class]);
+Route::get('/users/manage', [UserController::class, 'manage'])->middleware(['auth', authAdmin::class]);
 
 //delete user
-Route::delete('users/{user}', [UserController::class, 'destroy'])->middleware(['auth', authAdmin::class]);
+Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware(['auth', authAdmin::class]);
 
+//get user profile
+Route::get('/users/profile/{user}', [UserController::class, 'profile'])->middleware('auth');
+
+//get change password form
+Route::get('/users/changePassword/{user}', [UserController::class, 'changePasswordForm'])->middleware('auth');
+
+//change password
+Route::put('/users/changePassword/{user}', [UserController::class, 'changePassword'])->middleware('auth');
 
 
 /////////////////////////////// course routes ////////////////////////////////

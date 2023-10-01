@@ -86,4 +86,58 @@ class UserController extends Controller
 
         return back()->with('message', 'User deleted successfully');
     }
+
+    //get user profile
+    public function profile(User $user){
+        
+        if(auth()->user()->id != $user->id){
+            abort(403, 'Unautorized access.');
+        }
+
+        return view('users.profile', [
+            'user' => $user
+        ]);
+    }
+
+    //get change password form
+    public function changePasswordForm(User $user){
+
+        if(auth()->user()->id != $user->id){
+            abort(403, 'Unautorized access.');
+        }
+
+        return view('users.changePassword', [
+            'user' => $user
+        ]);
+    }
+
+    //change password
+    public function changePassword(Request $request, User $user){
+
+        if($user->id != auth()->id()){
+            abort(403, 'Unauthorized action');
+        }
+
+        $formField = $request->validate([
+            'password' => 'required|confirmed|min:6'
+        ]);
+
+        $currentpassword = $request['currentpassword'];
+
+        $verified = password_verify($currentpassword, auth()->user()->password);
+
+        if($verified){
+
+            $formField['password'] = bcrypt($formField['password']);
+    
+            $user->update($formField);
+    
+            return redirect("/users/profile/$user->id")->with('message', 'Password changed successfully');
+        }
+        else
+        return back()->with('message', 'The current password that you entered is incorrect');
+
+    }
+
+
 }
