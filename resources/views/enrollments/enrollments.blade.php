@@ -25,10 +25,6 @@
                     @if ($course->id == $enrollment->course_id)
                     <td><a href="/courses/{{$course->id}}">{{$course->title}}</a></td>
 
-                    <td>
-                        <a href="/enroll/manage/?userid={{auth()->user()->id}}&flag={{$enrollment->id}}"><button>Abandon</button></a>
-                     </td>
-
                      <td>
                         <a href="/lessons/manage?course={{$course->id}}">
                             <button>Start lessons</button>
@@ -36,9 +32,13 @@
                      </td>
 
                      <td>
-                        <a href="/questions/test?course={{$course->id}}">
+                        <a href="/questions/test?course={{$course->id}}&userid={{$enrollment->user_id}}">
                             <button>Test Yourself!</button>
                         </a>
+                     </td>
+
+                     <td>
+                        <a href="/enroll/manage/?userid={{auth()->user()->id}}&flag={{$enrollment->id}}"><button>Abandon</button></a>
                      </td>
                     
                     @endif

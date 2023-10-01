@@ -40,9 +40,12 @@
             @endunless
         </tbody>
     </table>
+
+    @if(auth()->user()->role == 'admin' || auth()->user()->role == 'professor')
     <a href="/lessons/create?course={{request('course')}}">
         <button>+ Add new lesson</button>
     </a>
+    @endif
 
     @php
         $flag = request('flag');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
+use App\Models\Enrollment;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -77,9 +78,15 @@ class QuestionController extends Controller
 
     //get test
     public function test(){
-        return view('questions.test', [
-            'course' => request('course')
-        ]);
+        
+        $enrollment = Enrollment::where('user_id', request('userid') )->where('course_id', request('course'))->get()->first();
+
+        if($enrollment->finished == 1)
+            return view('questions.test', [
+             'course' => request('course')
+            ]);
+        else
+            return redirect("/enroll/manage?userid=$enrollment->user_id")->with('message', 'You must first complete the course!');
     }
 
     //generate test

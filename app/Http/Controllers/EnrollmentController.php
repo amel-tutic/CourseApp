@@ -74,7 +74,7 @@ class EnrollmentController extends Controller
 
         $enrollment->save();
 
-        if($enrollment->passes = 1)
+        if($enrollment->passes < 2)
             return redirect("/enroll/manage?userid=$enrollment->user_id")->with('message', 'You finished the course. Test Yourself!');
 
         else
