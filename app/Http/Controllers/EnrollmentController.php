@@ -40,6 +40,7 @@ class EnrollmentController extends Controller
         foreach($enrollments as $enrollment){
             $course = Course::find($enrollment->course_id);
             array_push($courses, $course);
+            
         }
         
         if(auth()->user()->id != $userid){
@@ -81,5 +82,47 @@ class EnrollmentController extends Controller
         else
             return redirect("/enroll/manage?userid=$enrollment->user_id");
 
+    }
+
+    //get enroll history
+    public function history(){
+        $history = Enrollment::all()->where('user_id', request('userid'))->where('finished_course', '1');
+
+        $courses = [];
+
+        foreach($history as $record){
+            $course = Course::find($record->course_id);
+            array_push($courses, $course);
+            
+        }
+
+        return view('enrollments.history', [
+            'history' => $history,
+            'courses' => $courses
+        ]);
+    }
+
+    //get currently enrolled users
+    public function users(){
+        $userid = request('userid');
+        $courseid = request('course');
+
+        $users = [];
+
+        $course = Course::where('user_id', $userid)->get()->first();
+      
+        $enrollments = Enrollment::all()->where('course_id', $courseid);
+
+            foreach($enrollments as $enrollment){
+                if($course->id == $enrollment->course_id){
+                    $user = User::where('id', $enrollment->user_id)->get()->first();
+                    array_push($users, $user);
+                }
+            } 
+          
+
+            return view('enrollments.users', [
+                'users' => $users
+            ]);
     }
 }

@@ -42,9 +42,16 @@
                      </td>
 
                      <td>
-                        <a href="/questions/final?course={{$course->id}}&userid={{$enrollment->user_id}}"><button>Final test</button></a>
+                        <a href="/questions/final?course={{$course->id}}&userid={{$enrollment->user_id}}&finished={{$enrollment->finished_lessons}}"><button>Final test</button></a>
                      </td>
-                    
+
+                        @if($enrollment->finished_course == 1)
+                            <td>
+                                <p>You have finished this course.</p>
+                            </td>
+                        @endif  
+                  
+                                   
                     @endif
                 
                 @endforeach
@@ -63,6 +70,7 @@
     </x-card>
 
 <a href="/courses"><button>Find more courses!</button></a>
+<a href="/enroll/history?userid={{auth()->user()->id}}"><button>My history of courses</button></a>
 
 
     @if($flag)

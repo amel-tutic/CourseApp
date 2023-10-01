@@ -157,6 +157,12 @@ Route::delete('/enroll/{enrollment}', [EnrollmentController::class, 'destroy'])-
 //finish course
 Route::post('/enroll/finish', [EnrollmentController::class, 'finish'])->middleware(['auth', authStudent::class]);
 
+//get enroll history
+Route::get('/enroll/history', [EnrollmentController::class, 'history'])->middleware(['auth', authStudent::class]);
+
+//get currently enrolled users
+Route::get('/enroll/users', [EnrollmentController::class, 'users'])->middleware(['auth', authProfessor::class]);
+
 
 ////////////////////////////////// password reset //////////////////////////////////
 

@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Question;
+use App\Models\Enrollment;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -61,6 +62,11 @@ class DatabaseSeeder extends Seeder
             'title' => 'Lesson 1',
             'description' => 'descr for lesson 1',
             'content' => ' some content blah blah',
+        ]);
+
+        $enrollment = Enrollment::factory()->create([
+            'course_id' => '7',
+            'user_id' => '1',
         ]);
 
         $question = Question::factory()->create([

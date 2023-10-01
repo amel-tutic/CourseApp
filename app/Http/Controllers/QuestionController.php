@@ -141,6 +141,11 @@ class QuestionController extends Controller
     public function final(){
 
         $courseid = request('course');
+        $finished = request('finished');
+
+        if($finished == 0){
+            return back()->with('message', 'You must first finish the lessons!');
+        }
 
         $easyQuestions = Question::inRandomOrder()
                 ->where('course_id', $courseid)
