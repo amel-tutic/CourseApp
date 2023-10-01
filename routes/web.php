@@ -116,15 +116,7 @@ Route::get('/questions/manage', [QuestionController::class, 'getAll'])->middlewa
 //get edit form
 Route::get('/questions/{question}/edit', [QuestionController::class, 'edit'])->middleware(['auth', authProfessor::class]);
 
-//update a question
-Route::put('questions/{question}', [QuestionController::class, 'update'])->middleware(['auth', authProfessor::class]);
-
-//delete a question
-Route::delete('/questions/{question}', [QuestionController::class, 'destroy'])->middleware(['auth', authProfessor::class]);
-
-//get a single qustion
-Route::get('/qustions/{question}', [QuestionController::class, 'getById'])->middleware(['auth', authProfessor::class]);
-
+/////// test route ///////
 //get test
 Route::get('/questions/test', [QuestionController::class, 'test'])->middleware(['auth', authStudent::class]);
 
@@ -132,8 +124,23 @@ Route::get('/questions/test', [QuestionController::class, 'test'])->middleware([
 Route::post('/questions/test/generate', [QuestionController::class, 'generate'])->middleware(['auth', authStudent::class]);
 
 //evaluate test
-Route::post('questions/test/evaluate', [QuestionController::class, 'evaluate'])->middleware(['auth', authStudent::class]);
+Route::post('/questions/test/evaluate', [QuestionController::class, 'evaluate'])->middleware(['auth', authStudent::class]);
 
+//generate final test
+Route::get('/questions/final', [QuestionController::class, 'final'])->middleware(['auth', authStudent::class]);
+
+//evaluate final test
+Route::post('/questions/final/evaluate', [QuestionController::class, 'finalEvaluate'])->middleware(['auth', authStudent::class]);
+////// end tests routes //////
+
+//update a question
+Route::put('/questions/{question}', [QuestionController::class, 'update'])->middleware(['auth', authProfessor::class]);
+
+//delete a question
+Route::delete('/questions/{question}', [QuestionController::class, 'destroy'])->middleware(['auth', authProfessor::class]);
+
+//get a single question
+Route::get('/questions/{question}', [QuestionController::class, 'getById'])->middleware(['auth', authProfessor::class]);
 
 /////////////////////////// enrollment routes ///////////////////////////
 

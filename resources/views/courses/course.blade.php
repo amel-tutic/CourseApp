@@ -11,10 +11,12 @@
 
 
 @auth
-<form method="POST" action="/enroll?course={{$course->id}}&userid={{$userid}}">
+@if(auth()->user()->role == 'student')
+<form method="POST" action="/enroll?course={{$course->id}}&userid={{auth()->user()->id}}">
     @csrf
     <button>Enroll</button>    
 </form>
+@endif
 @endauth
 </x-card>
 

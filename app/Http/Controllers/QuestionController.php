@@ -81,7 +81,7 @@ class QuestionController extends Controller
         
         $enrollment = Enrollment::where('user_id', request('userid') )->where('course_id', request('course'))->get()->first();
 
-        if($enrollment->finished == 1)
+        if($enrollment->finished_lessons == 1)
             return view('questions.test', [
              'course' => request('course')
             ]);
@@ -133,5 +133,91 @@ class QuestionController extends Controller
             'questionres' => $questionres
         ]);
     }
+
+    //get final test
+    public function final(){
+
+        $courseid = request('course');
+
+        $easyQuestions = Question::inRandomOrder()
+                ->where('course_id', $courseid)
+                ->where('difficulty', 'easy')
+                ->limit(3)
+                ->get();
+
+        $mediumQuestions = Question::inRandomOrder()
+                ->where('course_id', $courseid)
+                ->where('difficulty', 'medium')
+                ->limit(4)
+                ->get();
+                
+        $hardQuestions = Question::inRandomOrder()
+                ->where('course_id', $courseid)
+                ->where('difficulty', 'hard')
+                ->limit(3)
+                ->get();
+
+        $allQuestions = [];
+
+        foreach($easyQuestions as $easyQuestion){
+            array_push($allQuestions, $easyQuestion);
+        }
+
+        foreach($mediumQuestions as $mediumQuestion){
+            array_push($allQuestions, $mediumQuestion);
+        }
+        
+        foreach($hardQuestions as $hardQuestion){
+            array_push($allQuestions, $hardQuestion);
+        }
+                    
+        return view('questions.final', [
+           'allQuestions' => $allQuestions
+        ]);
+    }
+
+    public function finalEvaluate(Request $request){
+
+        $answered = $request->input('answers');
+        $userid = $request['userid'];
+
+        $results = [];
+        $questionres = [];
+    
+        foreach ($answered as $questionid => $answer) {
+            $question = Question::find($questionid);
+            $question->attempts++;
+            array_push($questionres, $question);
+
+            if ($question->answer === $answer) {
+                $results[$questionid] = true; 
+                $question->successes++;
+            } else {
+                $results[$questionid] = false;
+            }
+
+            $question->save();
+        }
+
+        
+
+        $enrollment = Enrollment::where('user_id', $request['userid'])->where('course_id', $request['course'])->get()->first();
+
+        $enrollment->finished_test = 1;
+
+        $enrollment->test_attempts++;
+
+        if($enrollment->finished_lessons == 1 && $enrollment->finished_test == 1){
+            @$enrollment->finished_course == 1;
+        }
+
+        $enrollment->save();
+
+        return view('questions.finished', [
+            'results' => $results,
+        ]);
+
+    }
+
 
 }

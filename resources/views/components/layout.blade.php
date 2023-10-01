@@ -21,8 +21,14 @@
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
+
+                @guest
+                {{-- @if(auth()->user()->role == 'admin' || auth()->user()->role == 'professor') --}}
                 <li><a href="/register?role=professor">Be a professor</a></li>
                 <li><a href="/register?role=student">Be a student</a></li>
+                {{-- @endif --}}
+                @endguest
+                
                 <li><a href="/courses">Courses</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>

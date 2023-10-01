@@ -15,8 +15,14 @@ return new class extends Migration
             $table->id();
             $table->foreignId('course_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->boolean('finished')->default('0');
-            $table->integer('passes')->default('0');
+
+            $table->boolean('finished_lessons')->default('0');
+            $table->integer('lessons_attempts')->default('0');
+
+            $table->boolean('finished_test')->default('0');
+            $table->integer('test_attempts')->default('0');
+
+            $table->boolean('finished_course')->default('0');
             $table->timestamps();
         });
     }

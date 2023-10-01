@@ -40,6 +40,10 @@
                      <td>
                         <a href="/enroll/manage/?userid={{auth()->user()->id}}&flag={{$enrollment->id}}"><button>Abandon</button></a>
                      </td>
+
+                     <td>
+                        <a href="/questions/final?course={{$course->id}}&userid={{$enrollment->user_id}}"><button>Final test</button></a>
+                     </td>
                     
                     @endif
                 
