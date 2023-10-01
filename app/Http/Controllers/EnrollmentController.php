@@ -70,8 +70,15 @@ class EnrollmentController extends Controller
 
         $enrollment->finished = 1;
 
+        $enrollment->passes++;
+
         $enrollment->save();
 
-        return redirect("/enroll/manage?userid=$enrollment->user_id")->with('message', 'You finished the course. Test Yourself!');
+        if($enrollment->passes = 1)
+            return redirect("/enroll/manage?userid=$enrollment->user_id")->with('message', 'You finished the course. Test Yourself!');
+
+        else
+            return redirect("/enroll/manage?userid=$enrollment->user_id");
+
     }
 }

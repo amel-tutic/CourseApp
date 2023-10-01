@@ -9,5 +9,5 @@ class Enrollment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['course_id', 'user_id', 'finished'];
+    protected $fillable = ['course_id', 'user_id', 'finished', 'passes'];
 }
