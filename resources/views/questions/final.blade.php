@@ -24,7 +24,7 @@
 
         <p>{{$question->question}}</p> <span>{{$question->difficulty}}</span>
         @foreach($options as $option)   
-        <input type="radio" name="answers[{{$question->id}}]" value="{{$option}}"> <label>{{$option}}</label>
+        <input type="radio" name="answers[{{$question->id}}]" value="{{$option . ',' . $question->points}}"> <label>{{$option}}</label>
         @endforeach
 
         <br> <br>

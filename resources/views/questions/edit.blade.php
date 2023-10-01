@@ -47,6 +47,16 @@
         @error('difficulty')
             <p class="error">{{$message}}</p>
         @enderror
+
+        <br> <br>
+
+        <label for="points">Points: </label>
+        <input type="number" name="points" placeholder="points" value="{{old('points')}}">
+        @error('points')
+            <p class="error">{{$message}}</p>
+        @enderror
+
+        <br> <br>
     
         <button type="submit">Update</button>
     

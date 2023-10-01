@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="{{asset('css/create.css')}}">
-
 <x-layout>
 
     <form method="POST" action="/lessons/create?course={{request('course')}}" enctype="multipart/form-data">
@@ -24,7 +23,7 @@
         <br> <br>
     
         <label for="content">Content:</label>
-        <textarea name="content" placeholder="content" value="{{old('content')}}" rows="3" cols="20"></textarea>
+        <textarea name="content" value="{{old('content')}}" rows="5" cols="20"></textarea>
         @error('content')
             <p class="error">{{$message}}</p>
         @enderror
@@ -40,5 +39,11 @@
         <button type="submit">Create</button>
     
     </form>
+
+    <a href="/lessons/manage?course={{request('course')}}">
+    <button>Back</button>
+    </a>
+
+
 
 </x-layout>

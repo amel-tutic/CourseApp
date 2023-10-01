@@ -13,6 +13,7 @@
     <span>Option 3:</span> <p>{{$question->option3}}</p> <br> <br>
 
     <span>Difficulty:</span> <p>{{$question->difficulty}}</p>
+    <span>Points:</span> <p>{{$question->points}}</p>
     
     </x-layout>
     

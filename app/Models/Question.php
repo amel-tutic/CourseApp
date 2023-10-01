@@ -10,8 +10,16 @@ class Question extends Model
     use HasFactory;
 
     protected $fillable = [
-        'question', 'answer', 'option1', 'option2', 'option3', 'difficulty',  'course_id',
-        'attempts', 'successes'
+        'question',
+        'answer',
+        'option1',
+        'option2',
+        'option3',
+        'difficulty',
+        'course_id',
+        'attempts',
+        'successes',
+        'points'
     ];
 
     //relation to course

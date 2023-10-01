@@ -27,13 +27,14 @@
     </a>
 
     @else
+    @unless(auth()->user()->role == 'professor')
    <form method="POST" action="/enroll/finish?course={{$lesson->course_id}}&userid={{auth()->user()->id}}">
     @csrf
 
     <button>Finish Course</button>
 
     </form>
-
+    @endunless
     @endif
     </x-layout>
     

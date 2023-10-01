@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('option2');
             $table->string('option3');
             $table->string('difficulty');
-            $table->integer('attempts')->nullable();
-            $table->integer('successes')->nullable();
+            $table->integer('points')->default('0');
+            $table->integer('attempts')->default('0');
+            $table->integer('successes')->default('0');
             $table->timestamps();
         });
     }

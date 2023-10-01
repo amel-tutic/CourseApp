@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Question;
 use App\Models\Enrollment;
 use Illuminate\Http\Request;
+use Ramsey\Uuid\Type\Integer;
 
 class QuestionController extends Controller
 {
@@ -21,7 +22,8 @@ class QuestionController extends Controller
             'option1' => 'required',
             'option2' => 'required',
             'option3' => 'required',
-            'difficulty' => 'required'
+            'difficulty' => 'required',
+            'points' => 'required|integer'
         ]);
 
         $formFields['course_id'] = $request['course'];
@@ -56,7 +58,8 @@ class QuestionController extends Controller
             'option1' => 'required',
             'option2' => 'required',
             'option3' => 'required',
-            'difficulty' => 'required'
+            'difficulty' => 'required',
+            'points' => 'required'
         ]);
 
         $question->update($formFields);
@@ -179,12 +182,27 @@ class QuestionController extends Controller
     public function finalEvaluate(Request $request){
 
         $answered = $request->input('answers');
+      
         $userid = $request['userid'];
 
+        $maxPoints = 0;
+        $actualPoints = 0;
+        $correct = 0;
         $results = [];
         $questionres = [];
     
         foreach ($answered as $questionid => $answer) {
+
+            
+            // substr_replace($answer ,"", -1);
+            // substr($answer, 0, -1);
+
+            $answerparts = explode(",", $answer);
+            $answer = $answerparts[0]; 
+            $points = $answerparts[1]; 
+           
+            
+
             $question = Question::find($questionid);
             $question->attempts++;
             array_push($questionres, $question);
@@ -192,30 +210,45 @@ class QuestionController extends Controller
             if ($question->answer === $answer) {
                 $results[$questionid] = true; 
                 $question->successes++;
+                $correct++;
+                $maxPoints += $points;
+                $actualPoints += $points;
             } else {
                 $results[$questionid] = false;
+                $maxPoints += $points;
             }
 
             $question->save();
         }
 
-        
+        $pointsFinal = $maxPoints/$actualPoints;
+
 
         $enrollment = Enrollment::where('user_id', $request['userid'])->where('course_id', $request['course'])->get()->first();
 
-        $enrollment->finished_test = 1;
+        $finishedFlag = 0;
+        $courseFlag = 0;
+     
+        if($pointsFinal <= 2){
+            $enrollment->finished_test = 1;
+            $finishedFlag = 1;
+        }
 
         $enrollment->test_attempts++;
 
-        if($enrollment->finished_lessons == 1 && $enrollment->finished_test == 1){
-            @$enrollment->finished_course == 1;
+        if($enrollment->finished_lessons == 1 && $finishedFlag == 1){
+            $enrollment->finished_course = 1;
+            $courseFlag = 1;
         }
 
         $enrollment->save();
 
+        if($courseFlag == 1)
         return view('questions.finished', [
             'results' => $results,
         ]);
+        else
+            return redirect("/")->with('message', 'Sorry, you failed the test.');
 
     }
 
