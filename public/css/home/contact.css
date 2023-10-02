@@ -1,0 +1,22 @@
+.contact {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.heading{
+    border-bottom: 1px solid black;
+}
+
+.info  {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 3em;
+    width: 90%;
+}

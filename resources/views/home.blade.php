@@ -4,6 +4,7 @@
     @include('partials._landing')
     @include('partials._about')
     @include('partials._join')
+    @include('partials._courses')
     @include('partials._contact')
 
 </x-layout>

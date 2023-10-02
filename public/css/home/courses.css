@@ -1,0 +1,47 @@
+.newCourses{
+    width: 90%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.mainCourses{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.courseCard{
+    width: 30%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 1.25em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.headingCourses{
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.headingCourses h1{
+    border-bottom: 1px solid black;
+}
+
+.enrollbutton{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.enrollbutton button{
+    width: 30%;
+    background-color: rgb(82, 77, 77);
+    color: white;
+}

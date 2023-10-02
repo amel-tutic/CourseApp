@@ -30,7 +30,12 @@ use App\Http\Controllers\EnrollmentController;
 
 //get home page
 Route::get('/', function(){
-    return view('home');
+
+    $courses = Course::all();
+
+    return view('home', [
+        'courses' => $courses
+    ]);
 });
 
 

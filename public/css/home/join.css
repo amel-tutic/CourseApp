@@ -1,14 +1,55 @@
 .join{
     display: flex;
-    height: 570px;
+    justify-content: space-evenly;
+    height: fit-content;
+    padding: 2em;
 }
 
 .studentimage{
-    width: 30%;
- 
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 44.78%;
+   height: fit-content;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   
+}
+.studentimage h1{
+    color: black;
+}
+.professorimage{
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-decoration: none;
+    align-items: center;
+    display: flex;
+    width: 40%;
+    height: fit-content;
+}
+.professorimage:hover{
+    width: 42%;
+   
+}
+.studentimage:hover{
+    width: 47%;
+   
 }
 
-.professorimage{
-    width: 25%;
+.professorimage h1{
+    color: black;
+    text-align: end;
+}
+.professorimage img{
+   
+    margin-top: -1px;
+}
 
+.headingJoin{
+    display: flex;
+    justify-content: center;
+
+}
+
+.headingJoin h1{
+    border-bottom: 1px solid black;
 }
