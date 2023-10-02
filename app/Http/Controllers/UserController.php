@@ -126,9 +126,39 @@ class UserController extends Controller
 
         $verified = password_verify($currentpassword, auth()->user()->password);
 
+        $verified_old = false;
+        $oldpasswords = [];
+
         if($verified){
 
+            if($user->old_passwords){
+                $oldpasswords = explode('|', $user->old_passwords);
+
+                foreach($oldpasswords as $oldpassword){
+                    $verified_old = password_verify($formField['password'], $oldpassword);
+                    if($verified_old) break;
+                }
+                if($verified_old) return back()->with('message', 'New password must be different than the last three');
+                else{
+
+                    if(count($oldpasswords) == 3){
+                        array_pop($oldpasswords);
+                        array_unshift($oldpasswords, $user->password);
+                    }
+                    else{
+                        array_unshift($oldpasswords, $user->password);
+                    }
+
+                }
+            }
+            else{
+                array_unshift($oldpasswords, $user->password);
+            }
+          
+            
+
             $formField['password'] = bcrypt($formField['password']);
+            $formField['old_passwords'] = implode('|', $oldpasswords);
     
             $user->update($formField);
     
