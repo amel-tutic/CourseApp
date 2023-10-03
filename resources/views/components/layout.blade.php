@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <script src="//unpkg.com/alpinejs" defer></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1024, user-scalable=no">
 
     <link rel="stylesheet" href={{ asset('css/layout.css') }}>
     <link rel="icon" href={{ asset('img/cube.png') }} type="image/x-icon">
@@ -37,23 +37,32 @@
                 <li><a href="/contact">Contact</a></li>
             </ul>
         </nav>
-        <div class="reglog">
-           
-            @auth
-            <span class="welcome">Welcome {{auth()->user()->name}}</span>
-            @if(auth()->user()->role == 'admin' || auth()->user()->role == 'professor')
-            <a href="/courses/manage">Manage Courses</a>
-            @else
-            <a href="/enroll/manage?userid={{auth()->user()->id}}">My Courses</a>
 
-            @endif
-
-            @if(auth()->user()->role == 'admin')
-                <a href="/users/manage">Manage Users</a>
+        @auth
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown button
+            </button>
+            <ul class="dropdown-menu">
+              <li>@if(auth()->user()->role == 'admin' || auth()->user()->role == 'professor')
+                <a class="dropdown-item" href="/courses/manage">Manage Courses</a>
+                @else
+                <a class="dropdown-item" href="/enroll/manage?userid={{auth()->user()->id}}">My Courses</a>
+    
+                @endif
+             </li>
+              <li> @if(auth()->user()->role == 'admin') 
+                <a class="dropdown-item" href="/users/manage">Manage Users</a>
             
             @endif
+            </li>
+              <li> <a class="dropdown-item" href="/users/profile/{{auth()->user()->id}}">My Profile</a></li>
+            </ul>
+          </div>
+          @endauth
 
-            <a href="/users/profile/{{auth()->user()->id}}">My Profile</a>
+          @auth
+            <span class="welcome">Welcome {{auth()->user()->name}}</span>
 
             <form method="POST" action="/logout">
                 @csrf
@@ -63,16 +72,17 @@
             </form>
 
             @else
+            <div class="reglog">
             <a href="/register">Register</a>
             <a href="/login">Login</a>
-
+            </div>
+       
             @endauth
-        </div>
     </header>
     
     <x-flash-message />
 
-    <main>
+    <main class="slotMain">
         {{$slot}}
     </main>
 
@@ -96,6 +106,8 @@
       ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant"))
     });
   </script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

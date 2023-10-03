@@ -8,9 +8,11 @@
 
 @unless (count($courses) == 0)
 
+<div class="coursesList">
 @foreach($courses as $course)
 <x-course-card :course="$course"/>
 @endforeach
+</div>
 
 @else
 <p>No courses found</p>

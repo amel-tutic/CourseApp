@@ -1,66 +1,16 @@
-<link rel="stylesheet" href="{{asset('css/courses.css')}}">
+<link rel="stylesheet" href="{{asset('css/courses/manage.css')}}">
 
 @php
 $flag = request('flag');
 @endphp
 
 <x-layout>
-    <x-card>
-
-        <header>
-            <h1>Manage Courses</h1>
-        </header>
-
-        <table>
-            <tbody>
-                @unless ($courses->isEmpty())   
-                @foreach ($courses as $course)
-                <tr>
-                    <td>
-                        <a href="/courses/{{$course->id}}">{{$course->title}}</a>
-                    </td>
-                    
-                    <td>
-                        <a href="/courses/{{$course->id}}/edit">Edit</a>
-                    </td>
-                    <td>
-                        <a href="/courses/manage/?flag={{$course->id}}">
-                            <button>Delete</button>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/lessons/manage?course={{$course->id}}">
-                            <button>Manage lessons</button>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/questions/manage?course={{$course->id}}">
-                            <button>Manage test</button>
-                        </a>
-                    </td>
-
-                    <td>
-                        <a href="/enroll/users?course={{$course->id}}&userid={{auth()->user()->id}}">
-                            <button>Currently enrolled</button>
-                        </a>
-                    </td>
-
-                </tr>
-                @endforeach
-                @else
-                <tr>
-                    <td>You don't have any courses.</td>
-                </tr>
-                @endunless
-            </tbody>
-        </table>
-
-        
-    </x-card>
-    
-    <a href="/courses/create"><button>+ Add new course</button></a>
-
+ 
     @if($flag)
+    
+    <div class="windowoptionsDelete">
+    <div class="optionsDelete">
+        <h3>Are you sure?</h3>
     <form method="POST" action="/courses/{{$flag}}">
      @csrf
      @method('DELETE')
@@ -68,7 +18,85 @@ $flag = request('flag');
          <button>Confirm</button>
          
         </form>
-        <a href="/courses/manage"><button>Cancel</button></a>
+        <a id="cancelButton" href="/courses/manage"><button>Cancel</button></a>
+    </div>
+    </div>  
+    @else
+    <div id="manageMain">
+        <h1>Manage Courses</h1>
+
+
+    <table class="courses-table">
+        <tbody>
+            @unless ($courses->isEmpty())   
+            @foreach ($courses as $course)
+            <tr>
+                <td class="button-cell">
+                   
+                    <a style="text-decoration: none; color:black" href="/courses/{{$course->id}}">{{$course->title}}</a>
+                  
+                </td>
+                
+                <td class="button-cell">
+                    <div class="full-width-button-container">
+                    <a href="/courses/{{$course->id}}/edit">
+                        <button class="full-width-button">Edit</button>
+                    </a>
+                    </div>
+                </td>
+                <td class="button-cell">
+                    <div class="full-width-button-container">
+                    <a href="/courses/manage/?flag={{$course->id}}">
+                        <button class="full-width-button" id="deleteButton">Delete</button>
+                    </a>
+                    </div>
+                </td>
+                <td class="button-cell">
+                    <div class="full-width-button-container">
+                    <a href="/lessons/manage?course={{$course->id}}">
+                        <button class="full-width-button">Manage lessons</button>
+                    </a>
+                    </div>
+                </td>
+                <td class="button-cell">
+                    <div class="full-width-button-container">
+                    <a href="/questions/manage?course={{$course->id}}">
+                        <button class="full-width-button">Manage test</button>
+                    </a>
+                    </div>
+                </td>
+
+                <td class="button-cell">
+                    <div class="full-width-button-container">
+                    <a href="/enroll/users?course={{$course->id}}&userid={{auth()->user()->id}}">
+                        <button class="full-width-button">Currently enrolled</button>
+                    </a>
+                    </div>
+                </td>
+
+            </tr>
+            @endforeach
+            @else
+            <tr>
+                <td>You don't have any courses.</td>
+            </tr>
+            @endunless
+        </tbody>
+    </table>
+
+    
+
+
+<a href="/courses/create">
+<button style="background-color: rgb(78, 75, 75); color:white; border-radius:5px; padding:1em; margin-top:1em">
+    + Add new course
+</button>
+</a>
+
+</div>
+
     @endif
 
+
 </x-layout>
+    

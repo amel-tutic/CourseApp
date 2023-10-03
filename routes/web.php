@@ -38,6 +38,11 @@ Route::get('/', function(){
     ]);
 });
 
+//get contact page
+Route::get('/contact', function(){
+    return view('contact');
+});
+
 
 /////////////////////////////// user routes /////////////////////////////
 

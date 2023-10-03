@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="{{asset('css/create.css')}}">
+<link rel="stylesheet" href="{{asset('css/lessons/create.css')}}">
 <x-layout>
-
+<div class="createMain">
     <form method="POST" action="/lessons/create?course={{request('course')}}" enctype="multipart/form-data">
         @csrf
     
@@ -36,14 +36,15 @@
             <p class="error">{{$message}}</p>
         @enderror
     
-        <button type="submit">Create</button>
+        <button class="buttonCreate" type="submit">Create</button>
     
     </form>
-
+    <div class="backPositionDiv">
     <a href="/lessons/manage?course={{request('course')}}">
     <button>Back</button>
     </a>
+</div>
 
 
-
+</div>
 </x-layout>

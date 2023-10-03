@@ -42,6 +42,9 @@
             <label for="role">Choose desired role:</label> <br>
             <input type="radio" name="crole" id="student" value="student"> <label for="student">Student</label> <br>
             <input type="radio" name="crole" id="professor" value="professor"> <label for="professor">Professor</label> <br>
+            @error('crole')
+            <p class="error">The role field is required.</p>
+        @enderror
         @endif
 
         <br> <br>

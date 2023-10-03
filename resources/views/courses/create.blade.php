@@ -1,6 +1,9 @@
-<link rel="stylesheet" href="{{asset('css/create.css')}}">
+<link rel="stylesheet" href="{{asset('css/courses/create.css')}}">
 
 <x-layout>
+
+<div class="createMain">
+
 <form method="POST" action="/courses" enctype="multipart/form-data">
     @csrf
 
@@ -44,7 +47,9 @@
         <p class="error">{{$message}}</p>
     @enderror
 
-    <button type="submit">Create</button>
+    <button class="buttonCreate" type="submit">Create</button>
 
 </form>
+
+</div>
 </x-layout>

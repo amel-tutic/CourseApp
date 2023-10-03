@@ -1,0 +1,41 @@
+.createMain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 75vh;
+}
+
+.createMain form{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   
+}
+
+.createMain form input{
+    height: 2.5em;
+    padding-left: 1em;
+}
+
+.buttonCreate{
+    background-color: rgb(71, 69, 69);
+    color: white;
+}
+.backPositionDiv{
+    margin-top: 1.5em;
+    margin-left: -6.5em;
+    align-self: flex-start;
+    justify-self: start;
+    justify-content: start;
+    align-items: start;
+    
+}
+.backPositionDiv button{
+    background-color: black;
+    color: white;
+    width: 6em;
+}

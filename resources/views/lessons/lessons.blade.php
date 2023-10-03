@@ -1,33 +1,40 @@
 <x-layout>
+<div class="lessonsMain">
+    <link rel="stylesheet" href="{{asset('css/lessons/manage.css')}}">
 
-    <link rel="stylesheet" href="{{asset('css/courses.css')}}">
+    <div style="display: flex; justify-content:center;">
+      <h1>Start Lessons</h1>
+    </div>
 
-    <header>
-        <h1>Start Lessons</h1>
-    </header>
 
 @php
     $lessonnumber = 0
 @endphp
 
-    <table>
+    <table class="lessons-table">
         <tbody>
             @unless ($lessons->isEmpty())   
             @foreach ($lessons as $lesson)
             <tr>
-                <td>
+                <td class="button-cell">
                     <a href="/lessons/{{$lesson->id}}">Lesson {{++$lessonnumber}}: {{$lesson->title}}</a>
                 </td>
 
                 @auth
                 @if (auth()->user()->role == 'professor' || auth()->user()->role =='admin') 
-                <td>
-                    <a href="/lessons/{{$lesson->id}}/edit?course={{$lesson->course_id}}">Edit</a>
-                </td>
-                <td>
-                    <a href="/lessons/manage?course={{$lesson->course_id}}&flag={{$lesson->id}}">
-                        <button>Delete</button>
+                <td class="button-cell">
+                    <div class="full-width-button-container">
+                    <a href="/lessons/{{$lesson->id}}/edit?course={{$lesson->course_id}}">
+                        <button class="full-width-button">Edit</button>
                     </a>
+                    </div>
+                </td>
+                <td class="button-cell">
+                    <div class="full-width-button-container">
+                    <a href="/lessons/manage?course={{$lesson->course_id}}&flag={{$lesson->id}}">
+                        <button  class="full-width-button">Delete</button>
+                    </a>
+                    </div>
                 </td>
                 @endif
                 @endauth
@@ -42,9 +49,11 @@
     </table>
 
     @if(auth()->user()->role == 'admin' || auth()->user()->role == 'professor')
+    <div style="display: flex; justify-content:center">
     <a href="/lessons/create?course={{request('course')}}">
-        <button>+ Add new lesson</button>
+        <button style="background-color: rgb(78, 75, 75); color:white; border-radius:5px; padding:1em; margin-top:1em">+ Add new lesson</button>
     </a>
+    </div>
     @endif
 
     @php
@@ -63,4 +72,5 @@
         <a href="/lessons/manage?course={{$courseid}}"><button>Cancel</button></a>
     @endif
 
+</div>
 </x-layout>

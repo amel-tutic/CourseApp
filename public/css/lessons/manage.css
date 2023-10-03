@@ -1,0 +1,49 @@
+.lessonsMain{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    min-height: 75vh;
+    width: 100%;
+}
+
+.lessonsMain h1{
+    border-bottom: 1px solid black;
+}
+
+.lessons-table {
+    width: 80%; /* Postavljanje širine na 80% */
+    margin: 0 auto; /* Centriranje tabele na stranici */
+    border-collapse: collapse; /* Spajanje granica ćelija */
+    border-spacing: 0;
+}
+
+
+.lessons-table td, .lessons-table th {
+    border: 1px solid #ccc; 
+    padding: 8px; 
+    text-align: left; 
+}
+
+.lessons-table tr{
+    margin-bottom: 10px;
+}
+
+.button-cell {
+    width: 1%; 
+    white-space: nowrap; 
+    padding: 8px; /* Dodavanje razmaka unutar ćelija */
+}
+
+/* Stil za kontejnere dugmadi */
+.full-width-button-container {
+    width: 100%; /* Dugmad popunjavaju celu širinu ćelija */
+}
+
+/* Stil za dugmad unutar kontejnera */
+.full-width-button {
+    width: 100%; /* Dugmad popunjavaju celu širinu kontejnera */
+    background-color: rgb(123, 119, 119);
+    color: white;
+    border-radius: 5px;
+}

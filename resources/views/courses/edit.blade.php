@@ -1,6 +1,7 @@
-<link rel="stylesheet" href="{{asset('css/courses.css')}}">
+<link rel="stylesheet" href="{{asset('css/courses/edit.css')}}">
 
 <x-layout>
+    <div class="editMain">
 <form method="POST" action="/courses/{{$course->id}}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
@@ -42,7 +43,7 @@
     <label for="image">Image:</label>
     <input type="file" name="image" placeholder="image">
 
-    <img class="image"
+    <img class="editimage"
      src="{{$course->image ? asset('storage/' . $course->image) : asset('/storage/images/no-image.jpg')}}">
 
 
@@ -52,8 +53,8 @@
 
     <br> <br>
 
-    <button type="submit">Update</button>
+    <button class="buttonUpdate" type="submit">Update</button>
 
 </form>
-
+</div>
 </x-layout>
