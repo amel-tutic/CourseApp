@@ -1,16 +1,24 @@
+<link rel="stylesheet" href={{ asset('css/users/profile.css') }}>
+
 <x-layout>
 
-    <header>
-        <h2>Your profile</h2>
-    </header>
+    <div class="mainProfile">
+        <div class="infoProfile">
 
-    <span>Name: {{$user->name}}</span> <br> <br>
+        <div class="headingProfile">
+        <h1 style="border-bottom: 1px solid black; margin-bottom:1em;">My profile</h1>
+        </div>
+   
 
-    <span>Email: {{$user->email}}</span> <br> <br>
+    <span><b>Name:</b> {{$user->name}}</span> <br> <br>
 
-    <span>Role: {{$user->role}}</span> <br> <br>
+    <span><b>Email:</b> {{$user->email}}</span> <br> <br>
 
-   <a href="/users/changePassword/{{$user->id}}">Change password</a>
+    <span><b>Role:</b> {{$user->role}}</span> <br> <br>
 
+   <a href="/users/changePassword/{{$user->id}}"><button class="buttonProfile">Change password</button></a>
+
+</div>
+</div>
 
 </x-layout>

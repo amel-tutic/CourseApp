@@ -1,6 +1,12 @@
-<x-layout>
+<link rel="stylesheet" href={{ asset('css/users/changepassword.css') }}>
 
-    <h2>Change your password</h2>
+<x-layout>
+    <div class="mainCP">
+        <div class="infoCP">
+
+    <div class="headingCP">
+    <h1>Change your password</h1>
+    </div>
 
     <form method="POST" action="/users/changePassword/{{$user->id}}">
         @csrf
@@ -26,7 +32,9 @@
 
         <br> <br>
 
-        <button>Change</button>
+        <button class="buttonCP">Change</button>
     </form>
 
+</div>
+</div>
 </x-layout>

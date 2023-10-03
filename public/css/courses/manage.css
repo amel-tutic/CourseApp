@@ -7,7 +7,7 @@
     width: 100%;
 }
 #manageMain.hidden {
-    display: none; /* Kada je skriven, postavite 'display' na 'none' */
+    display: none; 
 }
 
 #manageMain h1{
@@ -15,9 +15,9 @@
 }
 
 .courses-table {
-    width: 80%; /* Postavljanje širine na 80% */
-    margin: 0 auto; /* Centriranje tabele na stranici */
-    border-collapse: collapse; /* Spajanje granica ćelija */
+    width: 80%;
+    margin: 0 auto; 
+    border-collapse: collapse; 
     border-spacing: 0;
 }
 
@@ -35,17 +35,17 @@
 .button-cell {
     width: 1%; 
     white-space: nowrap; 
-    padding: 8px; /* Dodavanje razmaka unutar ćelija */
+    padding: 8px; 
 }
 
-/* Stil za kontejnere dugmadi */
+
 .full-width-button-container {
-    width: 100%; /* Dugmad popunjavaju celu širinu ćelija */
+    width: 100%; 
 }
 
-/* Stil za dugmad unutar kontejnera */
+
 .full-width-button {
-    width: 100%; /* Dugmad popunjavaju celu širinu kontejnera */
+    width: 100%;
     background-color: rgb(123, 119, 119);
     color: white;
     border-radius: 5px;
