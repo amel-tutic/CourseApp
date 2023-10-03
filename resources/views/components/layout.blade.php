@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <script src="//unpkg.com/alpinejs" defer></script>
 
-    <meta name="viewport" content="width=1024, user-scalable=no">
+    <meta name="viewport" content="width=1024, user-scalable=yes">
 
     <link rel="stylesheet" href={{ asset('css/layout.css') }}>
     <link rel="icon" href={{ asset('img/cube.png') }} type="image/x-icon">

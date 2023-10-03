@@ -1,13 +1,22 @@
+<link rel="stylesheet" href="{{asset('css//users/login.css')}}">
+
 <x-layout>
 
-    <h2>Login</h2>
-    <p>Log in to add or enroll in courses</p>
+    <div class="mainLogin">
+    <div class="infoLogin">
 
+    <div class="headingLogin">
+    <h2>Login</h2>
+    <p>Log in to add or enroll in courses.</p>
+    </div>
+
+    <div class="formLogin">
     <form method="POST" action="/users/authenticate">
     @csrf
 
     <br> <br>
 
+   
     <label for="Email">Email:</label>
     <input type="email" name="email" placeholder="email" value="{{old('email')}}">
     @error('email')
@@ -21,25 +30,25 @@
     @error('password')
         <p class="error">{{$message}}</p>
     @enderror
+   
 
     <br> <br>
 
-    <button type="submit">Sign In</button>
+    <button class="buttonLogin" type="submit">Sign In</button>
 
     <br> <br> <br>
 
     <div>
         <p>Don't have an account?</p>
-        <a href="/register">Sign Up</a>
+        <a class="signupLogin" href="/register">Sign Up</a>
     </div>
 
     <br> <br>
 
-    {{-- <div>
-        <p>Forgot password?</p>
-        <a href="/forgot-password">Click here to reset password.</a>
-    </div> --}}
-
     </form>
+    </div>
+</div>
+
+</div>
 
 </x-layout>

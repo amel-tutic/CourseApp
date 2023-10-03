@@ -184,6 +184,7 @@ class QuestionController extends Controller
         ]);
     }
 
+    //evaluate final test
     public function finalEvaluate(Request $request){
 
         $answered = $request->input('answers');

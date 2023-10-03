@@ -1,0 +1,37 @@
+.mainLogin{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.infoLogin{
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 3em;
+    width:30%;
+    align-items: start;
+}
+
+.formLogin{
+    border-top: 1px solid;
+}
+
+.buttonLogin{
+    background-color: #192d2e;
+    color: white;
+    padding: 0.5em;
+}
+
+.signupLogin{
+    text-decoration: none;
+    color: #192d2e;
+}
+
+.signupLogin:hover{
+    color: #b0d0ef;
+}
+
