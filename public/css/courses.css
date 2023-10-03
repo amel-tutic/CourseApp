@@ -3,7 +3,7 @@
 }
 
 .gold {
-    background-color: gold !important;  
+    background-color: #192d2e !important;  
 }
 
 .image{
@@ -22,8 +22,8 @@
 }
 
 .enrollbutton button{
-    width: 30%;
-    background-color: rgb(82, 77, 77);
+    width: 10%;
+    background-color: #192d2e;
     color: white;
 }
 
