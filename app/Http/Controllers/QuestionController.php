@@ -195,6 +195,7 @@ class QuestionController extends Controller
         $correct = 0;
         $results = [];
         $questionres = [];
+        $questionsAnswered = 0;
     
         if($answered){
         foreach ($answered as $questionid => $answer) {
@@ -219,9 +220,11 @@ class QuestionController extends Controller
                 $correct++;
                 $maxPoints += $points;
                 $actualPoints += $points;
+                $questionsAnswered++;
             } else {
                 $results[$questionid] = false;
                 $maxPoints += $points;
+                $questionsAnswered++;
             }
 
             $question->save();
@@ -241,9 +244,14 @@ class QuestionController extends Controller
         $finishedFlag = 0;
         $courseFlag = 0;
      
+        if($questionsAnswered == 10){
         if($pointsFinal <= 2){
             $enrollment->finished_test = 1;
             $finishedFlag = 1;
+            }
+        }
+        else{
+            return back()->with('message', 'You must answer all the questions.');
         }
 
         $enrollment->test_attempts++;
