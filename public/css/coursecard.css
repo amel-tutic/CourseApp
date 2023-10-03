@@ -11,11 +11,9 @@
     display: flex;
     justify-content: center;
     background-color: #192d2e;
-}
+    width: 10%;
+    color: white;
 
-.enrollbutton{
-    display: flex;
-    justify-content: start;
 }
 
 .courseTitle a{

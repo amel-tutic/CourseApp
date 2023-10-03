@@ -1,16 +1,15 @@
-.newCourses{
-    width: 90%;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 2em;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-}
-
 .mainCourses{
     width: 100%;
     display: flex;
     justify-content: center;
+}
+.newCourses{
+    width: 90%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
 }
 
 .courseCard{
