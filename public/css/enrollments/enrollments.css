@@ -1,0 +1,96 @@
+#manageMain{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    min-height: 75vh;
+    width: 100%;
+}
+#manageMain.hidden {
+    display: none; 
+}
+
+#manageMain h1{
+    border-bottom: 1px solid black;
+}
+
+.courses-table {
+    width: 80%;
+    margin: 0 auto; 
+    border-collapse: collapse; 
+    border-spacing: 0;
+}
+
+
+.courses-table td, .courses-table th {
+    border: 1px solid #ccc; 
+    padding: 8px; 
+    text-align: left; 
+}
+
+.courses-table tr{
+    margin-bottom: 10px;
+}
+
+.button-cell {
+    width: 1%; 
+    white-space: nowrap; 
+    padding: 8px; 
+}
+
+
+.full-width-button-container {
+    width: 100%; 
+}
+
+
+.full-width-button {
+    width: 100%;
+    background-color: #192d2e; 
+    color: white;
+    border-radius: 5px;
+    padding: 0.5em;
+}
+
+.buttonsEnrollments{
+    display: flex;
+    margin-top: 1em;
+    justify-content: center;
+    width: 100%;
+}
+
+.infoButtonsEnrollments{
+    display: flex;
+}
+
+.buttonEnrollments{
+    background-color: #192d2e; 
+    color: white;
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
+.windowoptionsDelete{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.optionsDelete{
+    width: 40%;
+    height: fit-content;
+    padding: 2em;
+}
+
+.back{
+    position: absolute;
+    top: 100;
+    left: 0;
+}
