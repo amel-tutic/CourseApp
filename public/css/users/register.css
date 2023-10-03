@@ -1,0 +1,31 @@
+.mainRegister{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.infoRegister{
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 3em;
+}
+
+.buttonRegister{
+    background-color: #192d2e;
+    color: white;
+    padding: 0.5em;
+}
+
+.loginRegister{
+    text-decoration: none;
+    color: #192d2e;;
+}
+
+
+.loginRegister:hover{
+    color: #b0d0ef;
+}
