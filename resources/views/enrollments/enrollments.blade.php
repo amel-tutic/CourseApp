@@ -39,7 +39,9 @@
                 @foreach ($courses as $course)
 
                     @if ($course->id == $enrollment->course_id)
-                    <td class="button-cell"><a href="/courses/{{$course->id}}">{{$course->title}}</a></td>
+                    <td class="button-cell"><a class="titleEnrollments" href="/courses/{{$course->id}}">
+                        {{$course->title}}</a>
+                    </td>
 
                      <td class="button-cell">
                         <div class="full-width-button-container">

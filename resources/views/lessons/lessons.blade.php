@@ -17,7 +17,7 @@
             @foreach ($lessons as $lesson)
             <tr>
                 <td class="button-cell">
-                    <a href="/lessons/{{$lesson->id}}">Lesson {{++$lessonnumber}}: {{$lesson->title}}</a>
+                    <a class="titleLessons" href="/lessons/{{$lesson->id}}">Lesson {{++$lessonnumber}}: {{$lesson->title}}</a>
                 </td>
 
                 @auth
@@ -48,12 +48,20 @@
         </tbody>
     </table>
 
+    <a href="/enroll/manage?userid={{auth()->user()->id}}">
+        <button class="back">
+            <i class="fa-solid fa-arrow-left"></i> Back</button>
+    </a>
+
     @if(auth()->user()->role == 'admin' || auth()->user()->role == 'professor')
     <div style="display: flex; justify-content:center">
     <a href="/lessons/create?course={{request('course')}}">
         <button style="background-color: rgb(78, 75, 75); color:white; border-radius:5px; padding:1em; margin-top:1em">+ Add new lesson</button>
     </a>
     </div>
+
+
+
     @endif
 
     @php

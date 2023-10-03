@@ -1,0 +1,34 @@
+.mainLesson{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.infoLesson{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 40%;
+}
+
+.imageLesson{
+    width: 40%;
+}
+
+.buttonsLesson{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+
+
+.infoButtonsLesson button{
+    background-color: #192d2e; 
+    color: white;
+    padding: 0.5em;
+}

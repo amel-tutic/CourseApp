@@ -1,5 +1,8 @@
-<x-layout>
+<link rel="stylesheet" href={{ asset('css/questions/test.css') }}>
 
+<x-layout>
+    <div class="mainTest">
+        <div class="infoTest">
 
     <h2>Prepare to be tested!</h2>
 
@@ -14,8 +17,10 @@
 
         <br> <br>
 
-    <button>Proceed</button>
+    <button class="buttonTest">Proceed</button>
 
     </form>
 
+</div>
+</div>
 </x-layout>

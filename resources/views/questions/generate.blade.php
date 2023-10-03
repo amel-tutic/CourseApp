@@ -1,5 +1,10 @@
-<x-layout>
+<link rel="stylesheet" href={{ asset('css/questions/generate.css') }}>
 
+<x-layout>
+    <div class="mainGenerate">
+        <div class="infoGenerate">
+
+            <h2 style="margin-bottom: 1em;">Try answering all the questions:</h2>
    
     <form method="POST" action="/questions/test/evaluate?course={{$courseid}}">
         @csrf
@@ -28,7 +33,7 @@
 
     @endforeach
 
-    <button>Submit</button>
+    <button class="buttonGenerate">Submit</button>
 
     
     @else
@@ -37,4 +42,6 @@
     
 </form>
 
+</div>
+</div>
 </x-layout>

@@ -114,6 +114,7 @@ class QuestionController extends Controller
         $results = [];
         $questionres = [];
     
+        if($answered){
         foreach ($answered as $questionid => $answer) {
             $question = Question::find($questionid);
             $question->attempts++;
@@ -128,6 +129,8 @@ class QuestionController extends Controller
 
             $question->save();
         }
+    }
+   
         // dd($results);
 
         return view('questions.evaluate', [

@@ -1,8 +1,10 @@
+<link rel="stylesheet" href="{{asset('css/lessons/lesson.css')}}">
+
 <x-layout>
 
-    <link rel="stylesheet" href="{{asset('css/courses.css')}}">
-    
-    <img class="image" src="{{$lesson->image ? asset('storage/' . $lesson->image) : asset('/storage/images/no-image.jpg')}}">
+    <div class="mainLesson">
+        <div class="infoLesson">
+    <img class="image imageLesson" src="{{$lesson->image ? asset('storage/' . $lesson->image) : asset('/storage/images/no-image.jpg')}}">
     
     <h1>{{$lesson->title}}</h1>
     
@@ -10,7 +12,8 @@
 
     <span>{{$lesson->content}}</span>
 
-
+<div class="buttonsLesson">
+    <div class="infoButtonsLesson">
     @if($flag != 1)
     <a href="/lessons/{{$previous_record->id}}">
     <button>Previous Lesson</button>
@@ -32,9 +35,15 @@
     @csrf
 
     <button>Finish Course</button>
+    
 
     </form>
     @endunless
     @endif
+</div>
+</div>
+
+</div>
+</div>
     </x-layout>
     
