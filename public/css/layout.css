@@ -23,7 +23,7 @@ header {
     border-bottom: 1px solid rgba(23, 22, 22, 0.122);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 10px;
     /* background-image: linear-gradient(to right, rgb(31, 31, 31), rgb(62, 62, 62)); */
-    background-color: gray;
+    background-color: #192d2e;
 }
 header nav ul  {
     list-style: none;
@@ -38,7 +38,7 @@ header nav li {
 
 header nav a, .reglog a {
     text-decoration: none;
-    color: #000000;
+    color: white;
     font-weight: bold;
     font-size: x-large;
     /* font-family: "Dancing Script", cursive; */
@@ -54,8 +54,14 @@ footer {
     color: #000000;
     text-align: center;
     padding: 10px 0;
-    background-image: linear-gradient(to right, black, gray);
+    background-color: #192d2e;
+    /* background-image: linear-gradient(to right, black, gray); */
 }
+
+footer p{
+    color: white;
+}
+
 header .logo {
     float: left; 
 }
@@ -74,10 +80,23 @@ header .logo span {
 
 .flash-message{
     display: flex;
-    width: 100%;
+    width: 20%;
     justify-content: center;
     position: absolute;
-    color: red;
+    background-color:#e7e0de;
+    padding: 1em;
+    border-radius: 5px;
+}
+.flash-p{
+    font-size: large;
+    color: white;
+}
+
+.flashDiv{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
 }
 
 

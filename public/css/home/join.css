@@ -9,7 +9,7 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    width: 44.78%;
+    width: 44%;
    height: fit-content;
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
    
@@ -27,7 +27,7 @@
     height: fit-content;
 }
 .professorimage:hover{
-    width: 42%;
+    width: 43%;
    
 }
 .studentimage:hover{
@@ -52,4 +52,18 @@
 
 .headingJoin h1{
     border-bottom: 1px solid black;
+}
+
+.becomestudent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.becomeprofessor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

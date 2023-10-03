@@ -5,6 +5,8 @@
     <script src="https://cdn.tiny.cloud/1/2vdpcukfvfp4kbfrc6pg65pmij26edjxcq840jqf4l3hn52m/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <meta charset="UTF-8">
 
+    <script src="https://kit.fontawesome.com/ce8b4a70fc.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <script src="//unpkg.com/alpinejs" defer></script>
 
@@ -20,7 +22,7 @@
     <div id="layoutMain">
     <header>
         <div class="logo">
-            <a href="/"><img src={{ asset('img/logoblueorange2.png') }} alt="Cubickly" class="logo"></a>
+            <a href="/"><img src={{ asset('img/logobluered2.png') }} alt="Cubickly" class="logo"></a>
         </div>
         <nav>
             <ul>
@@ -41,7 +43,7 @@
         @auth
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown button
+              <i class="fa-solid fa-gear"></i> Tools
             </button>
             <ul class="dropdown-menu">
               <li>@if(auth()->user()->role == 'admin' || auth()->user()->role == 'professor')
@@ -62,12 +64,16 @@
           @endauth
 
           @auth
-            <span class="welcome">Welcome {{auth()->user()->name}}</span>
+            <span style="color: white" class="welcome">Welcome {{auth()->user()->name}}</span>
 
             <form method="POST" action="/logout">
                 @csrf
-                <button type="submit"> 
-                    Logout
+                <button style="border-radius:5px; background-color: #192d2e;" type="submit"> 
+                    <span style="color:white;">
+                      <i class="fa-solid fa-arrow-right-from-bracket" style="color: #f4f0f0;"></i>
+
+                      Logout
+                    </span>
                 </button>
             </form>
 

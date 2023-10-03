@@ -1,0 +1,26 @@
+.aboutMain{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.aboutsection{
+    flex-direction: column;
+    width: 90%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 3em;
+    font-size: large;
+}
+
+.aboutHeading{
+    display: flex;
+    justify-content: center;
+}
+
+.aboutHeading h1{
+    border-bottom: 1px solid black;
+}
