@@ -23,7 +23,7 @@
 <div>
 <form method="POST" action="/enroll?course={{$course->id}}&userid={{auth()->user()->id}}">
     @csrf
-    <button style="width:15%; background-color:#192d2e; color:white;">Enroll</button>    
+    <button style="width:10%; background-color:#192d2e; color:white;">Enroll</button>    
 </div>
 </form>
 @endif

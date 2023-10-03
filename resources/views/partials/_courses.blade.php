@@ -29,7 +29,7 @@
                 @if(auth()->user()->role == 'student')
                 <form class="enrollbutton" method="POST" action="/enroll?course={{$course->id}}&userid={{auth()->user()->id}}">
                 @csrf
-                <button>Enroll</button>    
+                <button style="background-color: #192d2e;">Enroll</button>    
                 </form>
                 @endif
                 @endauth
