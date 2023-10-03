@@ -196,6 +196,7 @@ class QuestionController extends Controller
         $results = [];
         $questionres = [];
     
+        if($answered){
         foreach ($answered as $questionid => $answer) {
 
             
@@ -225,9 +226,15 @@ class QuestionController extends Controller
 
             $question->save();
         }
+    }
+    else{
+        return back()->with('message', 'You must answer at least one question.');
+    }
 
-        $pointsFinal = $maxPoints/$actualPoints;
-
+        if($actualPoints > 0)
+            $pointsFinal = $maxPoints/$actualPoints;
+        else
+            return back()->with('message', 'You got zero points. Try again.');
 
         $enrollment = Enrollment::where('user_id', $request['userid'])->where('course_id', $request['course'])->get()->first();
 

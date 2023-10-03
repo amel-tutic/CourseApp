@@ -8,22 +8,25 @@
 
     
 
-    <a href="/register?role=student" class="studentimage">
+    <div class="studentimage">
+    <a href="/register?role=student">
         <img src="img/student.png">
-        <div class="becomestudent">
-        <h1>Become a student</h1>
-        <i class="fa-solid fa-book-open-reader fa-3x" style="color: #000000;"></i>
+        <div class="becomestudent" style="border-top: 1px solid black">
+        <h1 style="font-size: 1.5em">Become a student</h1>
+        <i class="fa-solid fa-book-open-reader fa-2x" style="color: #000000;"></i>
         </div>
     </a>
+    </div>
 
-
-    <a href="/register?role=professor"  class="professorimage">
+    <div class="professorimage">
+    <a href="/register?role=professor" >
         <div class="becomeprofessor">
-            <h1>Become a professor</h1>
-            <i class="fa-solid fa-chalkboard-user fa-3x" style="color: #000000;"></i>
+            <h1 style="font-size: 1.5em">Become a professor</h1>
+            <i class="fa-solid fa-chalkboard-user fa-2x" style="color: #000000;"></i>
          </div>
         <img src="img/professor.png">
     </a>
+    </div>
 
 </div>
 </div>

@@ -3,45 +3,38 @@
     justify-content: space-evenly;
     height: fit-content;
     padding: 2em;
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
 }
 
 .studentimage{
     text-decoration: none;
     display: flex;
     align-items: center;
-    width: 44%;
+    width: 30%;
    height: fit-content;
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
    
 }
-.studentimage h1{
-    color: black;
-}
 .professorimage{
-    overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     text-decoration: none;
     align-items: center;
     display: flex;
-    width: 40%;
+    width: 30%;
     height: fit-content;
 }
-.professorimage:hover{
-    width: 43%;
-   
-}
-.studentimage:hover{
-    width: 47%;
-   
+
+.studentimage h1{
+    color: black;
 }
 
 .professorimage h1{
-    color: black;
+    color: black;   
     text-align: end;
-}
-.professorimage img{
-   
-    margin-top: -1px;
 }
 
 .headingJoin{
@@ -66,4 +59,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.professorimage:hover{
+    width: 31%;
+   
+}
+.studentimage:hover{
+    width: 31%;
+   
 }
