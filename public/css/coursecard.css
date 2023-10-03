@@ -10,11 +10,12 @@
 .card button {
     display: flex;
     justify-content: center;
+    background-color: #192d2e;
 }
 
 .enrollbutton{
     display: flex;
-    justify-content: start;;
+    justify-content: start;
 }
 
 .courseTitle a{
