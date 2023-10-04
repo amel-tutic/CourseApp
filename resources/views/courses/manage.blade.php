@@ -41,28 +41,32 @@ $flag = request('flag');
                 <td class="button-cell">
                     <div class="full-width-button-container">
                     <a href="/courses/{{$course->id}}/edit">
-                        <button class="full-width-button">Edit</button>
+                        <button class="full-width-button" style="background-color: #192d2e; padding:0.5em;">
+                            Edit</button>
                     </a>
                     </div>
                 </td>
                 <td class="button-cell">
                     <div class="full-width-button-container">
                     <a href="/courses/manage/?flag={{$course->id}}">
-                        <button class="full-width-button" id="deleteButton">Delete</button>
+                        <button class="full-width-button" id="deleteButton" style="background-color: #192d2e; padding:0.5em; ">
+                            Delete</button>
                     </a>
                     </div>
                 </td>
                 <td class="button-cell">
                     <div class="full-width-button-container">
                     <a href="/lessons/manage?course={{$course->id}}">
-                        <button class="full-width-button">Manage lessons</button>
+                        <button class="full-width-button" style="background-color: #192d2e; padding:0.5em; ">
+                            Manage lessons</button>
                     </a>
                     </div>
                 </td>
                 <td class="button-cell">
                     <div class="full-width-button-container">
                     <a href="/questions/manage?course={{$course->id}}">
-                        <button class="full-width-button">Manage test</button>
+                        <button class="full-width-button" style="background-color: #192d2e; padding:0.5em; ">
+                            Manage test</button>
                     </a>
                     </div>
                 </td>
@@ -70,7 +74,8 @@ $flag = request('flag');
                 <td class="button-cell">
                     <div class="full-width-button-container">
                     <a href="/enroll/users?course={{$course->id}}&userid={{auth()->user()->id}}">
-                        <button class="full-width-button">Currently enrolled</button>
+                        <button class="full-width-button" style="background-color: #192d2e; padding:0.5em; ">
+                            Currently enrolled</button>
                     </a>
                     </div>
                 </td>

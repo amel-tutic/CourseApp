@@ -1,8 +1,10 @@
-<x-layout>
+<link rel="stylesheet" href={{ asset('css/users/manage.css') }}>
 
-    <header>
+<x-layout>
+    <div class="usersManage">
+  
         <h2>Manage Users</h2>
-    </header>
+   
 
     <table>
         <tbody>
@@ -49,4 +51,5 @@
         </tbody>
     </table>
 
+</div>
 </x-layout>

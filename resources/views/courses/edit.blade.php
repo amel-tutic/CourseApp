@@ -53,13 +53,14 @@
 
     <br> <br>
 
-    <button class="buttonUpdate" type="submit">Update</button>
+    <button class="buttonUpdate" type="submit" style="background-color: #192d2e; padding:0.5em;">Update</button>
 
 </form>
 </div>
 
 <a href="/courses/manage">
-    <button class="backEdit"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    <button class="backEdit" style="position:absolute; background-color: #192d2e; color:white; left:10; top:100;">
+        <i class="fa-solid fa-arrow-left"></i> Back</button>
 </a>
 
 </x-layout>

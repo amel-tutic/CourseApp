@@ -1,6 +1,6 @@
 <x-layout>
 
-<link rel="stylesheet" href="{{asset('css/courses.css')}}">
+<link rel="stylesheet" href="{{asset('css/courses/courses.css')}}">
 
 <h1>{{$heading}}</h1>
 

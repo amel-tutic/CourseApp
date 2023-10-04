@@ -51,14 +51,14 @@
                 <td class="button-cell">
                     <div class="full-width-button-container">
                     <a href="/lessons/{{$lesson->id}}/edit?course={{$lesson->course_id}}">
-                        <button class="full-width-button">Edit</button>
+                        <button class="full-width-button" style="background-color: #192d2e; ">Edit</button>
                     </a>
                     </div>
                 </td>
                 <td class="button-cell">
                     <div class="full-width-button-container">
                     <a href="/lessons/manage?course={{$lesson->course_id}}&flag={{$lesson->id}}">
-                        <button  class="full-width-button">Delete</button>
+                        <button  class="full-width-button" style="background-color: #192d2e; ">Delete</button>
                     </a>
                     </div>
                 </td>
@@ -76,13 +76,13 @@
 
     @if(auth()->user()->role == 'student')
     <a href="/enroll/manage?userid={{auth()->user()->id}}">
-        <button class="back" style="background-color: #192d2e; color:white; padding:0.5em;">
+        <button class="back" style="background-color: #192d2e; color:white; padding:0.5em; position: absolute; left:10; top:100;">
             <i class="fa-solid fa-arrow-left"></i> Back</button>
     </a>
 
     @else
     <a href="/courses/manage">
-        <button class="back" style="background-color: #192d2e; color:white; padding:0.5em;">
+        <button class="back" style="background-color: #192d2e; color:white; padding:0.5em; position: absolute; left:10; top:100;">
             <i class="fa-solid fa-arrow-left"></i> Back</button>
     </a>
     @endif

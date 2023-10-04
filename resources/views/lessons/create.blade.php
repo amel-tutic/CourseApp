@@ -36,12 +36,13 @@
             <p class="error">{{$message}}</p>
         @enderror
     
-        <button class="buttonCreate" type="submit">Create</button>
+        <button class="buttonCreate" type="submit" style="background-color: #192d2e; color:white; padding:0.5em;">Create</button>
     
     </form>
     
     <a href="/lessons/manage?course={{request('course')}}">
-    <button class="backCreate"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    <button class="backCreate" style="position: absolute; left:10; top:100; background-color: #192d2e; color:white; padding:0.5em">
+        <i class="fa-solid fa-arrow-left"></i> Back</button>
     </a>
 
 
