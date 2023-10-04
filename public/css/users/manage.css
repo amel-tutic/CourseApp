@@ -1,4 +1,4 @@
-#manageMain{
+#usersManage{
     display: flex;
     justify-content: start;
     align-items: center;
@@ -6,11 +6,11 @@
     min-height: 75vh;
     width: 100%;
 }
-#manageMain.hidden {
+#usersManage.hidden {
     display: none; 
 }
 
-#manageMain h1{
+#usersManage h1{
     border-bottom: 1px solid black;
 }
 

@@ -18,13 +18,13 @@ $flag = request('flag');
              <button style="background-color: #192d2e; color:white; padding:0.5em; margin-top:1em">Confirm</button>
              
             </form>
-            <a id="cancelButton" href="/courses">
+            <a id="cancelButton" href="/users/manage">
                 <button style="background-color: #192d2e; color:white; padding:0.5em; margin-top:1em">Cancel</button></a>
         </div>
         </div>  
 
     @else
-    <div class="usersManage">
+    <div id="usersManage">
   
         <div class="headingManage" style="width:100%; display:flex; justify-content:center">
         <h2 style="border-bottom: 1px solid black; margin-bottom:1em;">Manage Users</h2>
