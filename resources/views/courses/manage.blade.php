@@ -23,7 +23,7 @@ $flag = request('flag');
     </div>
     </div>  
     @else
-    <div id="manageMain">
+    <div class="manageMain">
         <h1>Manage Courses</h1>
 
 
@@ -97,7 +97,8 @@ $flag = request('flag');
 </div>
 
 <a href="/courses">
-    <button class="backManage"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    <button class="backManage" style="background-color: #192d2e; color:white; padding:0.5em; position:absolute; left:10; top:100;">
+        <i class="fa-solid fa-arrow-left"></i> Back</button>
 </a>
 
     @endif
