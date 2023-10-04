@@ -8,7 +8,7 @@
 
     <h2>Edit: {{$course->title}} </h2>
 
-    <label for="title">Title:</label>
+    <label for="title"><b>Title:</b></label>
     <input type="text" name="title" placeholder="title" value="{{$course->title}}">
     @error('title')
         <p class="error">{{$message}}</p>
@@ -16,7 +16,7 @@
 
     <br> <br>
 
-    <label for="description">Description:</label>
+    <label for="description"><b>Description:</b></label>
     <input type="textarea" name="description" placeholder="description" value="{{$course->description}}">
     @error('description')
         <p class="error">{{$message}}</p>
@@ -24,7 +24,7 @@
 
     <br> <br>
 
-    <label for="tags">Tags (Comma seperated):</label>
+    <label for="tags"><b>Tags (Comma seperated):</b></label>
     <input type="text" name="tags" placeholder="tags" value="{{$course->tags}}">
     @error('tags')
         <p class="error">{{$message}}</p>
@@ -32,7 +32,7 @@
 
     <br> <br>
 
-    <label for="duration">Duration:</label>
+    <label for="duration"><b>Duration:</b></label>
     <input type="number" name="duration" placeholder="duration" value="{{$course->duration}}">
     @error('duration')
         <p class="error">{{$message}}</p>
@@ -40,7 +40,7 @@
 
     <br> <br>
 
-    <label for="image">Image:</label>
+    <label for="image"><b>Image:</b></label>
     <input type="file" name="image" placeholder="image">
 
     <img class="editimage"
@@ -61,4 +61,5 @@
 <a href="/courses/manage">
     <button class="backEdit"><i class="fa-solid fa-arrow-left"></i> Back</button>
 </a>
+
 </x-layout>
