@@ -1,27 +1,23 @@
-.mainTest{
+.mainFinished{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+    min-height: 75vh
 }
 
-.infoTest{
+.infoFinished{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    align-items: center;
     padding: 3em;
-    width: 30%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 60%;
 }
 
-.buttonTest{
-    background-color: #192d2e; 
-    color: white;
-    padding: 0.5em;
-}
-
-.backTest{
+.backFinished{
     position: absolute;
     background-color: #192d2e; 
     color: white;

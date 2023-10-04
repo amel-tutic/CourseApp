@@ -1,4 +1,8 @@
+<link rel="stylesheet" href={{ asset('css/questions/evaluate.css') }}>
+
 <x-layout>
+    <div class="mainEvaluate">
+        <div class="infoEvaluate">
 
     @php
         $correct = 0;
@@ -32,9 +36,15 @@
 
     @endunless
 
+    <a href="/questions/test?course={{request('course')}}&userid={{auth()->user()->id}}">
+        <button class="backEvaluate"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    </a>
+
     @php
         $resultsnumber = count($results);
     @endphp
     <h2>You answered {{$correct}} out of {{$resultsnumber}} well.</h2>
 
+</div>
+</div>
 </x-layout>

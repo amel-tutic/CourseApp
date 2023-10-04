@@ -1,31 +1,34 @@
-.mainTest{
+.mainHistory{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+    min-height: 75vh;
 }
 
-.infoTest{
+.infoHistory{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    align-items: center;
+    width: 80%;
     padding: 3em;
-    width: 30%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.buttonTest{
-    background-color: #192d2e; 
-    color: white;
-    padding: 0.5em;
+.buttonHistory{
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
-.backTest{
+.backHistory{
+ 
     position: absolute;
-    background-color: #192d2e; 
-    color: white;
-    padding: 0.5em;
     left: 10;
     top: 100;
+    background-color: #192d2e; 
+    color: white;
+    padding: 0.5em;
 }

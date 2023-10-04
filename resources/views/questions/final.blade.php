@@ -1,9 +1,11 @@
+<link rel="stylesheet" href={{ asset('css/questions/final.css') }}>
+
 <x-layout>
-
-
-    <header class="mt-3">
-    <h2>Welcome to the final test.</h2>
-    </header>
+    <div class="mainFinal">
+        <div class="infoFinal">
+   
+    <h2 style="margin-bottom: 1em;">Welcome to the final test.</h2>
+   
 
     <form method="POST" action="/questions/final/evaluate?userid={{auth()->user()->id}}&course={{request('course')}}">
         @csrf
@@ -22,7 +24,7 @@
                 shuffle($options);
         @endphp
 
-        <p>{{$question->question}}</p> <span>{{$question->difficulty}}</span>
+        <p>{{$question->question}}</p>  {{--<span>{{$question->difficulty}}</span>--}}
         @foreach($options as $option)   
         <input type="radio" name="answers[{{$question->id}}]" value="{{$option . ',' . $question->points}}"> <label>{{$option}}</label>
         @endforeach
@@ -31,7 +33,7 @@
 
     @endforeach
 
-    <button>Submit</button>
+    <button class="buttonFinal">Submit</button>
 
     
     @else
@@ -40,4 +42,10 @@
     
 </form>
 
+<a href="/enroll/manage/?userid={{auth()->user()->id}}">
+    <button class="backFinal"><i class="fa-solid fa-arrow-left"></i> Back</button>
+</a>
+
+</div>
+</div>
 </x-layout>

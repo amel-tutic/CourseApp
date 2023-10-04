@@ -1,31 +1,29 @@
-.mainTest{
+.mainCourse{ 
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoCourse{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-}
-
-.infoTest{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 90%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 3em;
-    width: 30%;
 }
 
-.buttonTest{
-    background-color: #192d2e; 
-    color: white;
-    padding: 0.5em;
+.imageCourse{
+    width: 20%;
 }
 
-.backTest{
+.backCourse{
     position: absolute;
+    padding: 0.5em;
     background-color: #192d2e; 
     color: white;
-    padding: 0.5em;
     left: 10;
     top: 100;
 }

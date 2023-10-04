@@ -89,7 +89,7 @@ class QuestionController extends Controller
              'course' => request('course')
             ]);
         else
-            return redirect("/enroll/manage?userid=$enrollment->user_id")->with('message', 'You must first complete the course!');
+            return redirect("/enroll/manage?userid=$enrollment->user_id")->with('message', 'You must first finish the lessons!');
     }
 
     //generate test
@@ -235,7 +235,7 @@ class QuestionController extends Controller
         }
     }
     else{
-        return back()->with('message', 'You must answer at least one question.');
+        return back()->with('message', 'You must answer all the questions.');
     }
 
         if($actualPoints > 0)

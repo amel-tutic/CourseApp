@@ -6,7 +6,7 @@
 
     <h2>Prepare to be tested!</h2>
 
-    <p>Choose the difficulty to proceed, and choose carefully</p>
+    <p>Choose the difficulty to proceed: </p>
 
     <form method="POST" action="/questions/test/generate?course={{$course}}">
     @csrf
@@ -20,6 +20,10 @@
     <button class="buttonTest">Proceed</button>
 
     </form>
+
+    <a href="/enroll/manage?userid={{{auth()->user()->id}}}">
+        <button class="backTest"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    </a>
 
 </div>
 </div>

@@ -17,7 +17,9 @@
             @foreach ($lessons as $lesson)
             <tr>
                 <td class="button-cell">
-                    <a class="titleLessons" href="/lessons/{{$lesson->id}}">Lesson {{++$lessonnumber}}: {{$lesson->title}}</a>
+                    <a style="text-decoration:none; color:black;" class="titleLessons" href="/lessons/{{$lesson->id}}">
+                        Lesson {{++$lessonnumber}}: {{$lesson->title}}
+                    </a>
                 </td>
 
                 @auth
@@ -49,7 +51,7 @@
     </table>
 
     <a href="/enroll/manage?userid={{auth()->user()->id}}">
-        <button class="back">
+        <button class="back" style="background-color: #192d2e; color:white; padding:0.5em;">
             <i class="fa-solid fa-arrow-left"></i> Back</button>
     </a>
 

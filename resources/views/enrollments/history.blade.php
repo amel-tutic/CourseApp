@@ -1,12 +1,11 @@
- <link rel="stylesheet" href="{{asset('css/courses.css')}}">
+ <link rel="stylesheet" href="{{asset('css/enrollments/history.css')}}">
 
 <x-layout>
+        <div class="mainHistory">   
+            <div class="infoHistory">
 
-    <x-card>
-
-        <header>
             <h1>History of my courses</h1>
-        </header>
+        
 
         <table>
             <tbody>
@@ -14,12 +13,15 @@
             @foreach ($history as $record)
                 
                 <tr>
-                    <td>{{$record->course_id}}</td>
     
                     @foreach ($courses as $course)
     
                         @if ($course->id == $record->course_id)
-                        <td><a href="/courses/{{$course->id}}">{{$course->title}}</a></td>
+                        <td style="padding: 2em;">
+                            <a href="/courses/{{$course->id}}" style="text-decoration:none; color:black; font-size:larger;">
+                            {{$course->title}}
+                            </a>
+                        </td>
                                                              
                         @endif
                     
@@ -30,17 +32,18 @@
             
             @else
             <tr>
-                <h2>You have not finished in any courses yet!</h2>
+                <h2>You have not finished any courses yet!</h2>
             </tr>
             @endunless
         </tbody>
         </table>
     
-    </x-card>
 
-<a href="/enroll/manage?userid={{auth()->user()->id}}"><button>Back</button></a>
+        <div class="buttonHistory" style="margin-top: 2em;">
+        <a href="/courses"><button style="background-color: #192d2e; color:white; padding:0.5em;">Find more courses!</button></a>
+         </div>
+    <a href="/enroll/manage?userid={{auth()->user()->id}}"><button class="backHistory"><i class="fa-solid fa-arrow-left"></i> Back</button></a>
 
-<a href="/courses"><button>Find more courses!</button></a>
-
-
+</div>
+</div>
 </x-layout>
