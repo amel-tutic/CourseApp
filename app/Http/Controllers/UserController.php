@@ -85,7 +85,7 @@ class UserController extends Controller
     public function destroy(User $user){
         $user->delete();
 
-        return back()->with('message', 'User deleted successfully');
+        return redirect('/users/manage')->with('message', 'User deleted successfully');
     }
 
     //get user profile
