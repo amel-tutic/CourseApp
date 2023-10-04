@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{asset('/css/courses/manage.css')}}">
+<link rel="stylesheet" href="{{asset('css/courses/manage.css')}}">
 
 @php
 $flag = request('flag');
@@ -23,7 +23,7 @@ $flag = request('flag');
     </div>
     </div>  
     @else
-    <div class="manageMain">
+    <div id="manageMain">
         <h1>Manage Courses</h1>
 
 
