@@ -22,7 +22,8 @@
 </div>
 
 <a href="/courses">
-    <button class="backProfile"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    <button class="backProfile" style="background-color: #192d2e; color:white; padding:0.5em; position:absolute; left:10; top:100;">
+        <i class="fa-solid fa-arrow-left"></i> Back</button>
 </a>
 
 </x-layout>

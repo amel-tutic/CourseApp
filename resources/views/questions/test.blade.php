@@ -22,7 +22,8 @@
     </form>
 
     <a href="/enroll/manage?userid={{{auth()->user()->id}}}">
-        <button class="backTest"><i class="fa-solid fa-arrow-left"></i> Back</button>
+        <button class="backTest" style="background-color: #192d2e; color:white; padding:0.5em; position:absolute; left:10; top:100;">
+            <i class="fa-solid fa-arrow-left"></i> Back</button>
     </a>
 
 </div>

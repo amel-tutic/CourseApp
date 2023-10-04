@@ -52,14 +52,14 @@
                 <td class="button-cell">
                     <div class="full-width-button-container">
                     <a href="/lessons/{{$lesson->id}}/edit?course={{$lesson->course_id}}">
-                        <button class="full-width-button" style="background-color: #192d2e; ">Edit</button>
+                        <button class="full-width-button" style="background-color: #192d2e; color:white; padding:0.5em;">Edit</button>
                     </a>
                     </div>
                 </td>
                 <td class="button-cell">
                     <div class="full-width-button-container">
                     <a href="/lessons/manage?course={{$lesson->course_id}}&flag={{$lesson->id}}">
-                        <button  class="full-width-button" style="background-color: #192d2e; ">Delete</button>
+                        <button  class="full-width-button" style="background-color: #192d2e; color:white; padding:0.5em;">Delete</button>
                     </a>
                     </div>
                 </td>

@@ -26,7 +26,9 @@
 
   <div class="manageEnrollments">
     
-        <h1>My Courses</h1>
+    <div class="headingEnrollments" style="display: flex; justify-content: center;">
+        <h1 style="border-bottom: 1px solid black;">My Courses</h1>
+    </div>
    
 
     <table class="courses-table">

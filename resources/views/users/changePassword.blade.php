@@ -39,7 +39,8 @@
 </div>
 
 <a href="/users/profile/{{auth()->user()->id}}">
-    <button class="backCP"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    <button class="backCP" style="background-color: #192d2e; color:white; padding:0.5em; position:absolute; left:10; top:100;">
+        <i class="fa-solid fa-arrow-left"></i> Back</button>
 </a>
 
 </x-layout>
