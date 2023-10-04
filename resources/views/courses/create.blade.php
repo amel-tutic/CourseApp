@@ -51,9 +51,10 @@
 
 </form>
 
+</div>
+
 <a href="/courses/manage">
     <button class="backCreate"><i class="fa-solid fa-arrow-left"></i> Back</button>
 </a>
 
-</div>
 </x-layout>
