@@ -47,7 +47,8 @@
         <p class="error">{{$message}}</p>
     @enderror
 
-    <button class="buttonCreate" type="submit">Create</button>
+    <button class="buttonCreate" type="submit" style="background-color: #192d2e; color:white; padding:0.5em;">
+        Create</button>
 
 </form>
 
