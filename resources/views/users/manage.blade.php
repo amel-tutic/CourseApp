@@ -64,7 +64,7 @@ $flag = request('flag');
                     </td>
 
                     <td class="button-cell">
-                        <a href="/courses/manage/?flag={{$user->id}}">
+                        <a href="/users/manage/?flag={{$user->id}}">
                             <button class="full-width-button">Delete</button>
                         </a>
                     </td>

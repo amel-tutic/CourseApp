@@ -93,7 +93,9 @@
         
         @else
         <tr>
+            <div style="width: 100%; display:flex; justify-content: center">
             <h2>You are not enrolled in any courses yet!</h2>
+            </div>
         </tr>
         @endunless
     </tbody>
