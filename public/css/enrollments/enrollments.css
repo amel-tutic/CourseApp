@@ -1,4 +1,4 @@
-#manageEnrollments{
+.manageEnrollments{
     display: flex;
     justify-content: start;
     align-items: center;
@@ -6,11 +6,11 @@
     min-height: 75vh;
     width: 100%;
 }
-#manageEnrollments.hidden {
+.manageEnrollments.hidden {
     display: none; 
 }
 
-#manageEnrollments h1{
+.manageEnrollments h1{
     border-bottom: 1px solid black;
 }
 
