@@ -71,7 +71,6 @@
                 <button style="border-radius:5px; background-color: #192d2e;" type="submit"> 
                     <span style="color:white;">
                       <i class="fa-solid fa-arrow-right-from-bracket" style="color: #f4f0f0;"></i>
-
                       Logout
                     </span>
                 </button>

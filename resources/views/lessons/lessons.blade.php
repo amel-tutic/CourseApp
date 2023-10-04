@@ -21,11 +21,11 @@
             @csrf
             @method('DELETE')
             
-            <button style="background-color: #192d2e; color:white; padding:0.5em; margin-top:1em">Confirm</button>
+            <button style="background-color: #192d2e; color:white; padding:1em; margin-top:1em">Confirm</button>
             
         </form>
         <a href="/lessons/manage?course={{$courseid}}">
-            <button style="background-color: #192d2e; color:white; padding:0.5em; margin-top:1em">Cancel</button></a>
+            <button style="background-color: #192d2e; color:white; padding:1em; margin-top:1em">Cancel</button></a>
         </div>
     </div>
     
@@ -83,7 +83,7 @@
 
     @else
     <a href="/courses/manage">
-        <button class="backLessons" style="background-color: #192d2e; color:white; padding:0.5em; position: absolute; left:0; top:100;">
+        <button class="backLessons" style="background-color: #192d2e; color:white; padding:0.5em; position: absolute; left:10; top:100;">
             <i class="fa-solid fa-arrow-left"></i> Back</button>
     </a>
     @endif
