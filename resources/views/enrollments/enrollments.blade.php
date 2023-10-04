@@ -24,7 +24,7 @@
 
     @else
 
-  <div class="manageMain">
+  <div id="manageEnrollments">
         <h1>My Courses</h1>
    
 
