@@ -6,11 +6,33 @@
       <h1>Start Lessons</h1>
     </div>
 
+    @php
+        $lessonnumber = 0
+    @endphp
+    @php
+        $flag = request('flag');
+        $courseid = request('course');
+    @endphp
 
-@php
-    $lessonnumber = 0
-@endphp
 
+    @if($flag)
+    <div class="windowoptionsDelete">
+    <div class="optionsDelete">
+        <h3>Are you sure?</h3>
+    <form method="POST" action="/lessons/{{$flag}}">
+     @csrf
+     @method('DELETE')
+
+         <button style="background-color: #192d2e; color:white; padding:0.5em; margin-top:1em">Confirm</button>
+         
+        </form>
+        <a href="/lessons/manage?course={{$courseid}}">
+            <button style="background-color: #192d2e; color:white; padding:0.5em; margin-top:1em">Cancel</button></a>
+    </div>
+    </div>
+
+
+@else
     <table class="lessons-table">
         <tbody>
             @unless ($lessons->isEmpty())   
@@ -50,36 +72,30 @@
         </tbody>
     </table>
 
+    @if(auth()->user()->role == 'student')
     <a href="/enroll/manage?userid={{auth()->user()->id}}">
         <button class="back" style="background-color: #192d2e; color:white; padding:0.5em;">
             <i class="fa-solid fa-arrow-left"></i> Back</button>
     </a>
 
+    @else
+    <a href="/courses/manage">
+        <button class="back" style="background-color: #192d2e; color:white; padding:0.5em;">
+            <i class="fa-solid fa-arrow-left"></i> Back</button>
+    </a>
+    @endif
+
     @if(auth()->user()->role == 'admin' || auth()->user()->role == 'professor')
     <div style="display: flex; justify-content:center">
     <a href="/lessons/create?course={{request('course')}}">
-        <button style="background-color: rgb(78, 75, 75); color:white; border-radius:5px; padding:1em; margin-top:1em">+ Add new lesson</button>
+        <button style="background-color: #192d2e;  color:white; border-radius:5px; padding:1em; margin-top:1em">+ Add new lesson</button>
     </a>
     </div>
 
 
 
     @endif
-
-    @php
-        $flag = request('flag');
-        $courseid = request('course');
-    @endphp
-
-    @if($flag)
-    <form method="POST" action="/lessons/{{$flag}}">
-     @csrf
-     @method('DELETE')
-
-         <button>Confirm</button>
-         
-        </form>
-        <a href="/lessons/manage?course={{$courseid}}"><button>Cancel</button></a>
+    
     @endif
 
 </div>

@@ -11,9 +11,15 @@
 
 <p>{{$course->description}}</p>
 
+@if(auth()->user()->role == 'student')
 <a href="/enroll/manage/?userid={{auth()->user()->id}}">
     <button class="backCourse"><i class="fa-solid fa-arrow-left"></i> Back</button>
 </a>
+@else
+<a href="/courses/manage">
+    <button class="backCourse"><i class="fa-solid fa-arrow-left"></i> Back</button>
+</a>
+@endif
 
 
 @auth

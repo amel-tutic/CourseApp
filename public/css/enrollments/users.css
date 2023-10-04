@@ -1,37 +1,23 @@
-.editMain{
+.mainUsers{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     min-height: 75vh;
 }
 
-.editMain form{
-    width: 40%;
+.infoUsers{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2em;
+    align-items: center;
+    width: 80%;
+    padding: 3em;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-   
 }
 
-.editMain form input{
-    height: 2.5em;
-    padding-left: 1em;
-}
-
-.buttonUpdate{
-    background-color: #192d2e; 
-    color: white;
-    padding: 0.5em;
-}
-
-.editimage{
-    width: 10em;
-}
-
-.backEdit{
+.backUsers{
     position: absolute;
     left: 10;
     top: 100;

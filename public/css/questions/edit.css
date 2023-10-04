@@ -1,33 +1,21 @@
-.createMain{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-height: 75vh;
-}
-
-.createMain form{
-    width: 40%;
+.mainEdit{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2em;
+    align-items: center;
+    width: 100%;
+}
+
+.infoEdit{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-   
+    padding: 3em;
 }
 
-.createMain form input{
-    height: 2.5em;
-    padding-left: 1em;
-}
-
-.buttonCreate{
-    background-color: #192d2e; 
-    color: white;
-    padding: 0.5em;
-}
-
-.backCreate{
+.backEdit{
     background-color: #192d2e; 
     color: white;
     padding: 0.5em;

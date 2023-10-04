@@ -39,11 +39,11 @@
         <button class="buttonCreate" type="submit">Create</button>
     
     </form>
-    <div class="backPositionDiv">
+    
     <a href="/lessons/manage?course={{request('course')}}">
-    <button>Back</button>
+    <button class="backCreate"><i class="fa-solid fa-arrow-left"></i> Back</button>
     </a>
-</div>
+
 
 
 </div>

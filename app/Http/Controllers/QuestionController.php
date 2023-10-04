@@ -37,6 +37,8 @@ class QuestionController extends Controller
     //get all questions
     public function getAll(){
 
+        
+
         return view('questions.questions', [
             'questions' => Question::all()->where('course_id', '=', request('course')),
             'courseid' => request('course')

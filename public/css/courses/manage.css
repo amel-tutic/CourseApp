@@ -46,9 +46,10 @@
 
 .full-width-button {
     width: 100%;
-    background-color: rgb(123, 119, 119);
+    background-color: #192d2e; 
     color: white;
     border-radius: 5px;
+    padding: 0.5em;
 }
 
 .windowoptionsDelete{
@@ -68,4 +69,13 @@
     width: 40%;
     height: fit-content;
     padding: 2em;
+}
+
+.backManage{
+    position: absolute;
+    left: 10;
+    top: 100;
+    background-color: #192d2e; 
+    color: white;
+    padding: 0.5em;
 }

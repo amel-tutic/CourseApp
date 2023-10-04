@@ -21,4 +21,8 @@
 </div>
 </div>
 
+<a href="/courses">
+    <button class="backProfile"><i class="fa-solid fa-arrow-left"></i> Back</button>
+</a>
+
 </x-layout>

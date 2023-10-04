@@ -15,10 +15,11 @@ $flag = request('flag');
      @csrf
      @method('DELETE')
 
-         <button>Confirm</button>
+         <button style="background-color: #192d2e; color:white; padding:0.5em; margin-top:1em">Confirm</button>
          
         </form>
-        <a id="cancelButton" href="/courses/manage"><button>Cancel</button></a>
+        <a id="cancelButton" href="/courses/manage">
+            <button style="background-color: #192d2e; color:white; padding:0.5em; margin-top:1em">Cancel</button></a>
     </div>
     </div>  
     @else
@@ -88,12 +89,16 @@ $flag = request('flag');
 
 
 <a href="/courses/create">
-<button style="background-color: rgb(78, 75, 75); color:white; border-radius:5px; padding:1em; margin-top:1em">
+<button style="background-color: #192d2e; color:white; padding:1em; margin-top:1em">
     + Add new course
 </button>
 </a>
 
 </div>
+
+<a href="/courses">
+    <button class="backManage"><i class="fa-solid fa-arrow-left"></i> Back</button>
+</a>
 
     @endif
 

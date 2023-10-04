@@ -1,26 +1,52 @@
+<link rel="stylesheet" href="{{asset('css/questions/questions.css')}}">
+
+@php
+$flag = request('flag');
+$courseid = request('course');
+@endphp
+
 <x-layout>
+    <div class="mainQuestions">
+       
+        @if($flag)
+        <div class="windowoptionsDelete">
+            <div class="optionsDelete">
+                <h3>Are you sure?</h3>
+        <form method="POST" action="/questions/{{$flag}}">
+         @csrf
+         @method('DELETE')
+    
+             <button style="background-color: #192d2e; color:white; padding:0.5em; margin-top:1em">Confirm</button>
+             
+            </form>
+            <a href="/questions/manage?course={{$courseid}}">
+                <button style="background-color: #192d2e; color:white; padding:0.5em; margin-top:1em">Cancel</button></a>
+            </div>
+        </div>
+        @else
 
-    <link rel="stylesheet" href="{{asset('css/courses.css')}}">
-
-    <header>
         <h1>Manage Test</h1>
-    </header>
-
-    <table>
+  
+    <table class="courses-table">
         <tbody>
             @unless ($questions->isEmpty())   
             @foreach ($questions as $question)
             <tr>
-                <td>
-                    <a href="/questions/{{$question->id}}">{{$question->question}}</a>
+                <td class="button-cell">
+                    <a style="text-decoration: none; color:black;" href="/questions/{{$question->id}}">{{$question->question}}</a>
                 </td>
-                <td>
-                    <a href="/questions/{{$question->id}}/edit?course={{$question->course_id}}">Edit</a>
+                <td class="button-cell">
+                    <div class="full-width-button-container">
+                    <a href="/questions/{{$question->id}}/edit?course={{$question->course_id}}">
+                        <button class="full-width-button">Edit</button></a>
+                    </div>
                 </td>
-                <td>
+                <td class="button-cell">
+                    <div class="full-width-button-container">
                     <a href="/questions/manage?course={{$question->course_id}}&flag={{$question->id}}">
-                        <button>Delete</button>
+                        <button class="full-width-button">Delete</button>
                     </a>
+                    </div>
                 </td>
             </tr>
             @endforeach
@@ -32,23 +58,16 @@
         </tbody>
     </table>
     <a href="/questions/create?course={{request('course')}}">
-        <button>+ Add new question</button>
+        <button class="buttonQuestions">+ Add new question</button>
     </a>
 
-    @php
-        $flag = request('flag');
-        $courseid = request('course');
-    @endphp
 
-    @if($flag)
-    <form method="POST" action="/questions/{{$flag}}">
-     @csrf
-     @method('DELETE')
 
-         <button>Confirm</button>
-         
-        </form>
-        <a href="/questions/manage?course={{$courseid}}"><button>Cancel</button></a>
+    
+    <a href="/courses/manage">
+        <button class="backQuestions"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    </a>
+    
     @endif
-
+</div>
 </x-layout>

@@ -37,4 +37,9 @@
 
 </div>
 </div>
+
+<a href="/users/profile/{{auth()->user()->id}}">
+    <button class="backCP"><i class="fa-solid fa-arrow-left"></i> Back</button>
+</a>
+
 </x-layout>

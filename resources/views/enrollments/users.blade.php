@@ -1,9 +1,10 @@
+<link rel="stylesheet" href={{ asset('css/enrollments/users.css') }}>
+
 <x-layout>
+    <div class="mainUsers">
+        <div class="infoUsers">
 
-    <header>
-        <h2>Users that are currently enrolled on this course: </h2>
-    </header>
-
+        <h2 style="border-bottom: 1px solid black; margin-bottom:1em;">Users that are currently enrolled on this course: </h2>
 
     <table>
 
@@ -25,5 +26,12 @@
         </td>
         @endunless
     </table>
+
+</div>
+</div>
+
+<a href="/courses/manage">
+    <button class="backUsers"><i class="fa-solid fa-arrow-left"></i> Back</button>
+</a>
 
 </x-layout>
