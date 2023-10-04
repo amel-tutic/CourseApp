@@ -1,0 +1,25 @@
+.mainCreate{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.infoCreate{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 3em;
+}
+
+.backCreate{
+    background-color: #192d2e; 
+    color: white;
+    padding: 0.5em;
+    position: absolute;
+    left: 10;
+    top: 100;
+}
