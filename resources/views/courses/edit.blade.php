@@ -59,7 +59,7 @@
 </div>
 
 <a href="/courses/manage">
-    <button class="backEdit" style="position:absolute; background-color: #192d2e; color:white; left:10; top:100;">
+    <button class="backEdit" style="position:absolute; background-color: #192d2e; color:white; padding:0.5em; left:10; top:100;">
         <i class="fa-solid fa-arrow-left"></i> Back</button>
 </a>
 
