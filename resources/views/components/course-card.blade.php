@@ -1,6 +1,7 @@
+<link rel="stylesheet" href="{{asset('css/coursecard.css')}}">
+
 @props(['course'])
 
-<link rel="stylesheet" href="{{asset('css/coursecard.css')}}">
 
 
 <div class="card">

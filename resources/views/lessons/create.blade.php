@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="{{asset('css/lessons/create.css')}}">
+
 <x-layout>
 <div class="createMain">
     <form method="POST" action="/lessons/create?course={{request('course')}}" enctype="multipart/form-data">

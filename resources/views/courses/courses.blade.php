@@ -1,8 +1,10 @@
-<x-layout>
-
 <link rel="stylesheet" href="{{asset('css/courses/courses.css')}}">
 
-<h1>{{$heading}}</h1>
+
+<x-layout>
+
+
+<h1 style="margin-left: 0.3em;">{{$heading}}</h1>
 
 @include('partials._search')
 

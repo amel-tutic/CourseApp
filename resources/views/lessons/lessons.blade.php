@@ -1,6 +1,7 @@
+<link rel="stylesheet" href="{{asset('/css/lessons/manage.css')}}">
+
 <x-layout>
 <div class="lessonsMain">
-    <link rel="stylesheet" href="{{asset('/css/lessons/manage.css')}}">
 
     
     @php
@@ -76,13 +77,13 @@
 
     @if(auth()->user()->role == 'student')
     <a href="/enroll/manage?userid={{auth()->user()->id}}">
-        <button class="back" style="background-color: #192d2e; color:white; padding:0.5em; position: absolute; left:10; top:100;">
+        <button class="backLessons" style="background-color: #192d2e; color:white; padding:0.5em; position: absolute; left:10; top:100;">
             <i class="fa-solid fa-arrow-left"></i> Back</button>
     </a>
 
     @else
     <a href="/courses/manage">
-        <button class="back" style="background-color: #192d2e; color:white; padding:0.5em; position: absolute; left:10; top:100;">
+        <button class="backLessons" style="background-color: #192d2e; color:white; padding:0.5em; position: absolute; left:0; top:100;">
             <i class="fa-solid fa-arrow-left"></i> Back</button>
     </a>
     @endif
@@ -90,12 +91,10 @@
     @if(auth()->user()->role == 'admin' || auth()->user()->role == 'professor')
     <div style="display: flex; justify-content:center">
     <a href="/lessons/create?course={{request('course')}}">
-        <button style="background-color: #192d2e;  color:white; border-radius:5px; padding:1em; margin-top:1em">+ Add new lesson</button>
+        <button style="background-color: #192d2e;  color:white; border-radius:5px; padding:1em; margin-top:1em">
+            + Add new lesson</button>
     </a>
     </div>
-
-
-
     @endif
     
     @endif
