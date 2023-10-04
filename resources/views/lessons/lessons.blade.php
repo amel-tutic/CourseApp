@@ -1,38 +1,40 @@
 <x-layout>
 <div class="lessonsMain">
-    <link rel="stylesheet" href="{{asset('css/lessons/manage.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/lessons/manage.css')}}">
+
+    
+    @php
+        $lessonnumber = 0
+        @endphp
+    @php
+        $flag = request('flag');
+        $courseid = request('course');
+        @endphp
+
+
+@if($flag)
+<div class="windowoptionsDelete">
+    <div class="optionsDelete">
+        <h3>Are you sure?</h3>
+        <form method="POST" action="/lessons/{{$flag}}">
+            @csrf
+            @method('DELETE')
+            
+            <button style="background-color: #192d2e; color:white; padding:0.5em; margin-top:1em">Confirm</button>
+            
+        </form>
+        <a href="/lessons/manage?course={{$courseid}}">
+            <button style="background-color: #192d2e; color:white; padding:0.5em; margin-top:1em">Cancel</button></a>
+        </div>
+    </div>
+    
+    
+    @else
 
     <div style="display: flex; justify-content:center;">
       <h1>Start Lessons</h1>
     </div>
 
-    @php
-        $lessonnumber = 0
-    @endphp
-    @php
-        $flag = request('flag');
-        $courseid = request('course');
-    @endphp
-
-
-    @if($flag)
-    <div class="windowoptionsDelete">
-    <div class="optionsDelete">
-        <h3>Are you sure?</h3>
-    <form method="POST" action="/lessons/{{$flag}}">
-     @csrf
-     @method('DELETE')
-
-         <button style="background-color: #192d2e; color:white; padding:0.5em; margin-top:1em">Confirm</button>
-         
-        </form>
-        <a href="/lessons/manage?course={{$courseid}}">
-            <button style="background-color: #192d2e; color:white; padding:0.5em; margin-top:1em">Cancel</button></a>
-    </div>
-    </div>
-
-
-@else
     <table class="lessons-table">
         <tbody>
             @unless ($lessons->isEmpty())   
