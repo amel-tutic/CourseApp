@@ -1,4 +1,4 @@
-<link rel="stylesheet" href={{ asset('css/users/profile.css') }}>
+<link rel="stylesheet" href={{ asset('/css/users/profile.css') }}>
 
 <x-layout>
 
