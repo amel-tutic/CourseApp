@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{asset('css/courses/manage.css')}}">
+<link rel="stylesheet" href="{{asset('/css/courses/manage.css')}}">
 
 @php
 $flag = request('flag');
