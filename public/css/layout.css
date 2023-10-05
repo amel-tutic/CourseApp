@@ -98,4 +98,35 @@ header .logo span {
     width: 100%;
 }
 
+.userNav{
+    width: 40%;
+    display: flex;
+    justify-content:end;
+    align-items: center;
+}
 
+.infoUserNav{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdownButton{
+    background-color: #192d2e; 
+}
+
+.dropdownButton:hover{
+    background-color: #2d4446; 
+}
+
+.reglog{
+    width: 90%;
+    display: flex;
+    justify-content: end;
+}
+.infoRegLog{
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+}

@@ -30,8 +30,8 @@
 
                 @guest
                 {{-- @if(auth()->user()->role == 'admin' || auth()->user()->role == 'professor') --}}
-                <li><a href="/register?role=professor">Be a professor</a></li>
-                <li><a href="/register?role=student">Be a student</a></li>
+                <li><a href="/register?role=professor">Teach</a></li>
+                <li><a href="/register?role=student">Learn</a></li>
                 {{-- @endif --}}
                 @endguest
                 
@@ -40,9 +40,13 @@
             </ul>
         </nav>
 
+        <div class="userNav">
+          <div class="infoUserNav">
         @auth
+        <span style="color: white" class="welcome">Welcome {{auth()->user()->name}}</span>
+
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle dropdownButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa-solid fa-gear"></i> Tools
             </button>
             <ul class="dropdown-menu">
@@ -61,28 +65,27 @@
               <li> <a class="dropdown-item" href="/users/profile/{{auth()->user()->id}}">My Profile</a></li>
             </ul>
           </div>
-          @endauth
-
-          @auth
-            <span style="color: white" class="welcome">Welcome {{auth()->user()->name}}</span>
-
-            <form method="POST" action="/logout">
+  
+            <form method="POST" action="/logout" style="margin:0;">
                 @csrf
-                <button style="border-radius:5px; background-color: #192d2e;" type="submit"> 
-                    <span style="color:white;">
+                <button style="border-radius:5px; background-color: #192d2e; color:white; padding:0.3em" type="submit"> 
                       <i class="fa-solid fa-arrow-right-from-bracket" style="color: #f4f0f0;"></i>
                       Logout
-                    </span>
                 </button>
             </form>
+          </div>
+        </div>
 
             @else
             <div class="reglog">
-            <a href="/register">Register</a>
-            <a href="/login">Login</a>
+              <div class="infoReglog">
+                <a href="/register"><i class="fa-solid fa-user-plus fa-sm"></i> Register</a>
+                <a href="/login"><i class="fa-solid fa-right-to-bracket fa-sm"></i> Login</a>
+              </div>
             </div>
        
             @endauth
+        
     </header>
     
     <x-flash-message />
