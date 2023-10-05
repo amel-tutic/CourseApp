@@ -51,8 +51,8 @@ class DatabaseSeeder extends Seeder
 
         $course = Course::factory()->create([
             'user_id' => '2',
-            'title' => 'Kurs 1',
-            'description' => 'opis kursa 1',
+            'title' => 'Course 1',
+            'description' => 'Description for Course 1',
             'tags' => 'tag1, tag2, tag3',
             'duration' => '5'
         ]);
@@ -60,8 +60,8 @@ class DatabaseSeeder extends Seeder
         $lesson = Lesson::factory()->create([
             'course_id' => '7',
             'title' => 'Lesson 1',
-            'description' => 'descr for lesson 1',
-            'content' => ' some content blah blah',
+            'description' => 'Description for Lesson 1',
+            'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis, magna suscipit accumsan tincidunt, turpis leo pulvinar nisi, ac bibendum urna tortor nec arcu. Aliquam arcu ex, faucibus eget tristique vitae, hendrerit non ligula. Nunc ornare tincidunt risus eget congue. Pellentesque rhoncus felis eu orci commodo viverra. Suspendisse consectetur urna ac nunc interdum lobortis. Sed a volutpat massa. Suspendisse lectus mi, hendrerit ac bibendum eget, semper mollis nunc. Aliquam erat volutpat',
         ]);
 
         $enrollment = Enrollment::factory()->create([
