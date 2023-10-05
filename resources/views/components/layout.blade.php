@@ -40,8 +40,14 @@
             </ul>
         </nav>
 
-        <div class="userNav">
-          <div class="infoUserNav">
+        <div class="userNav" style="    width: 60%;
+        display: flex;
+        justify-content:end;
+        align-items: center;">
+          <div class="infoUserNav" style="    display: flex;
+          width: 80%;
+          justify-content: space-between;
+          align-items: center;">
         @auth
         <span style="color: white" class="welcome">Welcome {{auth()->user()->name}}</span>
 

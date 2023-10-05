@@ -98,7 +98,7 @@ header .logo span {
     width: 100%;
 }
 
-.userNav{
+/* .userNav{
     width: 60%;
     display: flex;
     justify-content:end;
@@ -110,7 +110,7 @@ header .logo span {
     width: 80%;
     justify-content: space-between;
     align-items: center;
-}
+} */
 
 .dropdownButton{
     background-color: #192d2e; 
