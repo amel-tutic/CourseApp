@@ -21,7 +21,7 @@
     <title>Cubikly</title>
     
 </head>
-<body>
+<body style="font-family: 'Chakra Petch', sans-serif;">
     <div id="layoutMain">
     <header>
         <div class="logo">
