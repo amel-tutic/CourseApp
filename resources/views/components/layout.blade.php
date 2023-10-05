@@ -79,7 +79,7 @@
             @else
             <div class="reglog">
               <div class="infoReglog">
-                <a href="/register"><i class="fa-solid fa-user-plus fa-sm"></i> Register</a>
+                <a href="/register" style="margin-right:0.5em"><i class="fa-solid fa-user-plus fa-sm"></i> Register</a>
                 <a href="/login"><i class="fa-solid fa-right-to-bracket fa-sm"></i> Login</a>
               </div>
             </div>

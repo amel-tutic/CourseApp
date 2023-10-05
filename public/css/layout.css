@@ -99,7 +99,7 @@ header .logo span {
 }
 
 .userNav{
-    width: 40%;
+    width: 60%;
     display: flex;
     justify-content:end;
     align-items: center;
