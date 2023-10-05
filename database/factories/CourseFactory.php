@@ -19,7 +19,7 @@ class CourseFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'description' => $this->faker->paragraph(5),
-            'tags' => 'crveno, krava, bojler',
+            'tags' => '3x3, oll, pll',
             'duration' => $this->faker->randomNumber()
         ];
     }
